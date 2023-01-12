@@ -5,7 +5,7 @@ NumberofLogs: 100000
 TimeToSleep: 0
 client_id: a73960de-84fc-471a-8183-c1e5c7ae5bcb
 client_key: tSQ7USRYm3jVpj2dnk7rt4g5RGumCASP
-client_secret: GBfKMNRNb3AVqjthxv9Pa8GD2tAsXjTYjTtURnwCbqrNEcQZtruYFbMGC7mZwKPc
+client_secret: m9PPrwyfug6Y7wnwnd4t6nMqdpnryAdDsaYxeuKvZMxqaZKfcXDdYatTCEB2BZGT
 portal_url: int.opsramp.net
 AWS_TOKEN: R8vCm39UGgpeVyX2Wa4zewP5SxGYkxJQ
 AZURE_TOKEN: JP9X4aS7RyMpCt6EcecyQwrU3W27FKYG
