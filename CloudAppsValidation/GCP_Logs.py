@@ -52,7 +52,7 @@ def GCPLogs(workdirectory, AuthToken, gcptoken, portal, tenantid, starttimenanos
         + portal +\
         "/logs/api/v1/tenants/"\
         + tenantid +\
-        "/logs?source=gcp&token="\
+        "/logs/gcp/"\
         + gcptoken
 
     payload = json.dumps({
