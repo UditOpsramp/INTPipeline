@@ -82,7 +82,7 @@ def AZURELogs(workdirectory, AuthToken, azuretoken, portal, tenantid, starttimen
         + portal +\
         "/logs/api/v1/tenants/"\
         + tenantid +\
-        "/logs/azure/"\
+        "/azure/"\
         + azuretoken
 
     payload = json.dumps(azurepayload_json)
