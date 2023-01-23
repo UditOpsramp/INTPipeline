@@ -58,10 +58,10 @@ def AppLogs(workdirectory,AuthToken,portal,tenantid,starttimenanosec,endtimenano
                 logsdata = logsresponsejson['data']
                 logsresultdata = logsdata['result']
                 if not logsresultdata:
-                    status = "App Name : " + app + " : Validation Fail - Logs are not coming on portal"
+                    status = "Source Name : " + app + " : Validation Fail - Logs are not coming on portal"
                     parsedreportfile['Apps_Logs'] = status
                 else:
-                    status = "App Name : " + app + " : Validation Pass - Logs are coming on portal"
+                    status = "Source Name : " + app + " : Validation Pass - Logs are coming on portal"
                     parsedreportfile['Apps_Logs'] = status
 
             else:
