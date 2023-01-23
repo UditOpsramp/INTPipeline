@@ -3,13 +3,13 @@ LogRotateSizeInMB: 600
 NumberofLogFiles: 1
 NumberofLogs: 100000
 TimeToSleep: 0
-client_id: a73960de-84fc-471a-8183-c1e5c7ae5bcb
-client_key: tSQ7USRYm3jVpj2dnk7rt4g5RGumCASP
-client_secret: m9PPrwyfug6Y7wnwnd4t6nMqdpnryAdDsaYxeuKvZMxqaZKfcXDdYatTCEB2BZGT
+client_id: 6ae4c202-ae0f-4b53-8a04-e0ef492cd35d
+client_key: UtGw9gD2UHqArg5GhPdkrdKhzgVd46Ed
+client_secret: ZDyMsFwMjc4B59BGdPKnNTn2bS9rFT3dRSHuRn4tQk52NYfPRBUkPJ74cxRUzZqm
 portal_url: int.opsramp.net
-AWS_TOKEN: R8vCm39UGgpeVyX2Wa4zewP5SxGYkxJQ
-AZURE_TOKEN: JP9X4aS7RyMpCt6EcecyQwrU3W27FKYG
-GCP_TOKEN: QDNz5Rn6JfgAtCsKgt3H7GkPsvHTmvFQ
+AWS_TOKEN: mDhp4BtC9Q5fhbpfq8zKc2tKuFecRnqt
+AZURE_TOKEN: GSp27yv9fWWvcQccahsQFpBeCAbGu3Yt
+GCP_TOKEN: cVX6KJyXWvgAHEP4PVm3KRWkgT5CEQf7
 AWS_BUCKETNAME : logs-validation
 GOOGLECHAT_WEBHOOK_URL: https://chat.googleapis.com/v1/spaces/AAAAV4jeHC8/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=tp_r--y2kXuf9VkUSCd3m4hhBmYHTVCUGMr6gJ4wmkU%3D
 SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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 
