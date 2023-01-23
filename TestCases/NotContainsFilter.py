@@ -40,7 +40,7 @@ def QueryNotContainsLogs(workdirectory,AuthToken,portal,tenantid,starttimenanose
     
     for i in logconfigfilelist:
         for k,j in i['inputs'].items():
-            app = (k)
+            source = (k)
 
             url = "https://"\
             +portal+\
@@ -48,7 +48,7 @@ def QueryNotContainsLogs(workdirectory,AuthToken,portal,tenantid,starttimenanose
             +tenantid+\
             "/logs?query={source!="\
             '"'\
-            +app+\
+            +source+\
             '"'\
             "}&step=30&start="\
             +str(starttimenanosec)+\
@@ -68,7 +68,7 @@ def QueryNotContainsLogs(workdirectory,AuthToken,portal,tenantid,starttimenanose
                 logsresultStatus = False
                 for p in resultdata:
                     streamvalue = (p['stream']) 
-                if app not in str(streamvalue):
+                if source not in str(streamvalue):
                     logsresultStatus=True
                 if not logsresultStatus:    
                     status = "Validation Fail - Not Contains Query Filter Functionality is not Working Properly"

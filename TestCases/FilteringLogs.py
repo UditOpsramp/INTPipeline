@@ -55,7 +55,7 @@ def FilteringLogs(workdirectory,AuthToken, tenantid, portal, starttimenanosec, e
 
     for i in filteringconfigfilelist:
         for k, j in i['inputs'].items():
-            app = (k)
+            source = (k)
             filteringvalue = (j['filters'][0]['include'])
             filtervalue = filteringvalue.capitalize()
 
@@ -65,7 +65,7 @@ def FilteringLogs(workdirectory,AuthToken, tenantid, portal, starttimenanosec, e
                 + tenantid +\
                 "/logs?query={source={"\
                 '"'\
-                + app +\
+                + source +\
                 '"'\
                 "}&limit=51&start="\
                 + str(starttimenanosec) +\

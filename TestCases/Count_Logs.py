@@ -71,7 +71,7 @@ def CountLogs(workdirectory, AuthToken, portal, tenantid, starttimeUNIX, endtime
     for i in countlogconfigfilelist:
         for k, j in i['inputs'].items():
             path = (j['include'][0])
-            app = (k)
+            source = (k)
 
             cmd = "cat " + path + "| wc -l"
             logscountvalue = sp.getoutput(cmd)
@@ -83,7 +83,7 @@ def CountLogs(workdirectory, AuthToken, portal, tenantid, starttimeUNIX, endtime
                 + tenantid +\
                 "/logs/count?query={source="\
                 '"'\
-                + app +\
+                + source +\
                 '"'\
                 "}&step=30&start="\
                 + str(starttimeUNIX) +\
