@@ -25,10 +25,7 @@ def AppLogs(workdirectory,AuthToken,portal,tenantid,starttimenanosec,endtimenano
      
     for i in logconfigfilelist:
         for k,j in i['inputs'].items():
-            if not (j['app']):
-                app = (k)
-            else:    
-                app = (j['app']) 
+            app = (k)
         
             payload={}
             headers = {

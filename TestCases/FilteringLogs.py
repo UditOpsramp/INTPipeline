@@ -55,7 +55,7 @@ def FilteringLogs(workdirectory,AuthToken, tenantid, portal, starttimenanosec, e
 
     for i in filteringconfigfilelist:
         for k, j in i['inputs'].items():
-            app = (j['app'])
+            app = (k)
             filteringvalue = (j['filters'][0]['include'])
             filtervalue = filteringvalue.capitalize()
 

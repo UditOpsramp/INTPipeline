@@ -56,7 +56,7 @@ def MaskingLogs(workdirectory,AuthToken,tenantid,portal,parsedconfigfile,startti
     for i in maskingconfigfilelist:
 
         for k,j in i['inputs'].items():
-            app = (j['app'])
+            app = (k)
             maskingmessage = (j['masking'][0]['placeholder']) 
 
             maskinglogsurl = "https://"\
