@@ -13,7 +13,7 @@ def LabelsTest(workdirectory, AuthToken, tenantid, portal, starttimeUNIX, endtim
     parsedreportfile = yaml.load(reportfile, Loader=yaml.FullLoader)
     AllLabelStatus = parsedreportfile['AllLabelStatus']
 
-    PostingLabels = ["clusterName", "containerName", "eventCategory", "file_name", "file_path", "host", "level", "location", "logGroup", "logName", "logStream",
+    PostingLabels = ["source","clusterName", "containerName", "eventCategory", "file_name", "file_path", "host", "level", "location", "logGroup", "logName", "logStream",
                      "messageType", "namespaceName", "operationName", "owner", "podName", "projectId", "resourceId", "resourceType", "subscriptionFilters", "tenantId", "type"]
 
     with open(workdirectory + "/TestCasesConfig/label-logconfig.yaml", "r") as file:
