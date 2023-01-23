@@ -63,7 +63,7 @@ def MaskingLogs(workdirectory,AuthToken,tenantid,portal,parsedconfigfile,startti
             +portal+\
             "/logsrql/api/v7/tenants/"\
             +tenantid+\
-            "/logs?query={app="\
+            "/logs?query={source="\
             '"'\
             +app+\
             '"'\

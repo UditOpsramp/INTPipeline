@@ -30,7 +30,7 @@ def FluentDLogs(workdirectory, AuthToken, portal, tenantid, starttimenanosec, en
         + portal +\
         "/logsrql/api/v7/tenants/"\
         + tenantid +\
-        '/logs?query={app="FluentD"}&limit=51&start='\
+        '/logs?query={source="FluentD"}&limit=51&start='\
         + str(starttimenanosec) +\
         "&end="\
         + str(endtimenanosec)

@@ -40,7 +40,7 @@ def AppLogs(workdirectory,AuthToken,portal,tenantid,starttimenanosec,endtimenano
             +portal+\
             "/logsrql/api/v7/tenants/"\
             +tenantid+\
-            "/logs?query={app="\
+            "/logs?query={source="\
             '"'\
             +app+\
             '"'\

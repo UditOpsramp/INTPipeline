@@ -49,7 +49,7 @@ def QueryNotContainsLogs(workdirectory,AuthToken,portal,tenantid,starttimenanose
             +portal+\
             "/logsrql/api/v7/tenants/"\
             +tenantid+\
-            "/logs?query={app!="\
+            "/logs?query={source!="\
             '"'\
             +app+\
             '"'\

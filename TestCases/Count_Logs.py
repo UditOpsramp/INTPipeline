@@ -84,7 +84,7 @@ def CountLogs(workdirectory, AuthToken, portal, tenantid, starttimeUNIX, endtime
                 + portal +\
                 "/logsrql/api/v7/tenants/"\
                 + tenantid +\
-                "/logs/count?query={app="\
+                "/logs/count?query={source="\
                 '"'\
                 + app +\
                 '"'\

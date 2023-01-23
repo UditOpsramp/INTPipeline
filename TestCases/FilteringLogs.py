@@ -63,7 +63,7 @@ def FilteringLogs(workdirectory,AuthToken, tenantid, portal, starttimenanosec, e
                 + portal +\
                 "/logsrql/api/v7/tenants/"\
                 + tenantid +\
-                "/logs?query={app={"\
+                "/logs?query={source={"\
                 '"'\
                 + app +\
                 '"'\
