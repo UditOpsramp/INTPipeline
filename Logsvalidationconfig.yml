@@ -11,7 +11,7 @@ AWS_TOKEN: mDhp4BtC9Q5fhbpfq8zKc2tKuFecRnqt
 AZURE_TOKEN: GSp27yv9fWWvcQccahsQFpBeCAbGu3Yt
 GCP_TOKEN: cVX6KJyXWvgAHEP4PVm3KRWkgT5CEQf7
 AWS_BUCKETNAME : logs-validation
-GOOGLECHAT_WEBHOOK_URL: https://chat.googleapis.com/v1/spaces/AAAAV4jeHC8/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=tp_r--y2kXuf9VkUSCd3m4hhBmYHTVCUGMr6gJ4wmkU%3D
+GOOGLECHAT_WEBHOOK_URL: https://chat.googleapis.com/v1/spaces/AAAASkbKjyE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=x1rUpPmWjpbNRqzbWAr1oYc7dFJhpJ2p2Wa9nXDhJSM%3D
 SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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 
 Portal_Name: INT
 
