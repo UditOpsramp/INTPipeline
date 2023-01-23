@@ -2,7 +2,7 @@
 global:
   ignore_older: 4h
 inputs:
-  log-filtering:
+  logfiltering:
     type: file
     include:
     - /home/LogsAutomation/*.log
