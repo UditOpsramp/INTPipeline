@@ -53,7 +53,7 @@ endtimenanosec = endtimeUNIX * 1000000000
 
 GetAuthToken.GetAuthToken(clientkey, clientsecret, portal)
 AuthToken = GetAuthToken.token
-'''
+
 TESTCASE1 = "\nTEST CASE-1 : VALIDATION OF AWS LOGS\n\n"
 CloudAppsValidation.AWS_Logs.AWSLogs(
     workdirectory, AuthToken, awstoken, portal, tenantid, starttimenanosec, endtimenanosec)
@@ -65,10 +65,10 @@ CloudAppsValidation.Azure_Logs.AZURELogs(
 TESTCASE3 = "\n\nTEST CASE-3 : VALIDATION OF GCP LOGS\n\n"
 CloudAppsValidation.GCP_Logs.GCPLogs(
     workdirectory, AuthToken, gcptoken, portal, tenantid, starttimenanosec, endtimenanosec)
-'''
+
 TESTCASE4 = "\n\nTESTCASE-4 : CHECK ALL LABELS COMING OR NOT\n"   
 TestCases.Labels.LabelsTest(workdirectory,AuthToken,tenantid,portal,starttimeUNIX,endtimeUNIX)
-'''
+
 TESTCASE5 = "\n\nTESTCASE-5 : CHECK ALL LABELS-VALUES COMING OR NOT\n"   
 TestCases.Label_Values.LabelValues(workdirectory, AuthToken, tenantid, portal, starttimeUNIX, endtimeUNIX)
 
@@ -169,4 +169,3 @@ parsedreportfile['AllLabelStatus'] = []
 parsedreportfile['LabelValuesNotComing'] = []
 with open(workdirectory + "/Report.yml", "w") as file:
     yaml.dump(parsedreportfile, file)
-'''
