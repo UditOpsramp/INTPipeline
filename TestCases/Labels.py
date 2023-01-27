@@ -35,6 +35,7 @@ def LabelsTest(workdirectory, AuthToken, tenantid, portal, starttimeUNIX, endtim
     
     cmd = "sudo cp " + workdirectory + \
         "/TestCasesConfig/label-logconfig.yaml /opt/opsramp/agent/conf/log.d/log-config.yaml"
+    print(cmd)
     sp.getoutput(cmd)
 
     cmd = "sudo systemctl restart opsramp-agent"
