@@ -8,7 +8,8 @@ import subprocess as sp
 
 
 def LabelsTest(workdirectory, AuthToken, tenantid, portal, starttimeUNIX, endtimeUNIX):
-
+    
+    print("Hello")
     reportfile = open(workdirectory + "/Report.yml")
     parsedreportfile = yaml.load(reportfile, Loader=yaml.FullLoader)
     AllLabelStatus = parsedreportfile['AllLabelStatus']
@@ -36,7 +37,8 @@ def LabelsTest(workdirectory, AuthToken, tenantid, portal, starttimeUNIX, endtim
     cmd = "sudo cp " + workdirectory + \
         "/TestCasesConfig/label-logconfig.yaml /opt/opsramp/agent/conf/log.d/log-config.yaml"
     sp.getoutput(cmd)
-
+    
+    print("DOne")
     cmd = "sudo systemctl restart opsramp-agent"
     sp.getoutput(cmd)
 
