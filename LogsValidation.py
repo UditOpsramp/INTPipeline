@@ -72,7 +72,7 @@ TestCases.Labels.LabelsTest(workdirectory,AuthToken,tenantid,portal,starttimeUNI
 TESTCASE5 = "\n\nTESTCASE-5 : CHECK ALL LABELS-VALUES COMING OR NOT\n"   
 TestCases.Label_Values.LabelValues(workdirectory, AuthToken, tenantid, portal, starttimeUNIX, endtimeUNIX)
 
-TESTCASE6 = "\n\nTEST CASE-6 : VALIDATION OF SOURCE'S LOGS\n\n"
+TESTCASE6 = "\n\nTEST CASE-6 : VALIDATION OF APP'S LOGS\n\n"
 TestCases.Apps_Logs.AppLogs(
     workdirectory, AuthToken, portal, tenantid, starttimenanosec, endtimenanosec)
 
