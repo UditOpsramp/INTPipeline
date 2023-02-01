@@ -6,7 +6,7 @@ TimeToSleep: 0
 client_id: 037deee7-83d1-467b-9cdb-802dc2bad263
 client_key: 7TCWHgrmSgBJX6Amhk7TJMWAjhYBwEe7
 client_secret: Fdfb83Mz24NexCs4kXRbw2umNzFrNa4aG5DhRwevUNkKz9aFHeRHgk8fA3bBQQvz
-portal_url: int.api.opsramp.net
+portal_url: int.opsramp.net
 AWS_TOKEN: rxcn3HgBTx2SAXXunMRSdJCzQY36Gbfq
 AZURE_TOKEN: F3gX8wYpPGhCRpes3PvMNJxXd6dxTQb8
 GCP_TOKEN: bxdhXCAFeHSd57dZaGsTDgk9hqwrnfg6
