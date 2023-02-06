@@ -27,7 +27,9 @@ import SendReport_to_GooleChat
 import SendReport_to_Slack
 
 config_and_report_directory = os.getcwd()
+print(config_and_report_directory)
 workdirectory = os.getcwd() + "/LogsAutomation"
+print(workdirectory)
 
 configfile = open(config_and_report_directory + "/INTAutomationconfig.yml")
 parsedconfigfile = yaml.load(configfile, Loader=yaml.FullLoader)
