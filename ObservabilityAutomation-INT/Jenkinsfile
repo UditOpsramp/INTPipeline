@@ -8,8 +8,8 @@ pipeline {
     }
     stage('ObservabilityAutomation') {
       steps {
-        sh 'python3 ObservabilityAutomation-INT/LogsAutomation/LogsValidation.py'
-        sh 'python3 ObservabilityAutomation-INT/LogsAutomation/TracingValidation.py'
+        sh 'python3 LogsAutomation-INT/ObservabilityAutomation-INT/LogsAutomation/LogsValidation.py'
+        sh 'python3 LogsAutomation-INT/ObservabilityAutomation-INT/LogsAutomation/TracingValidation.py'
       }
     }
   }
