@@ -37,8 +37,8 @@ reportfile = open(config_and_report_directory + "/Report.yml")
 parsedreportfile = yaml.load(reportfile, Loader=yaml.FullLoader)
 portal = parsedconfigfile["portal_url"]
 tenantid = parsedconfigfile["client_id"]
-clientkey = parsedconfigfile["client_key"]
-clientsecret = parsedconfigfile["client_secret"]
+clientkey = parsedconfigfile["partner_key"]
+clientsecret = parsedconfigfile["partner_secret"]
 awstoken = parsedconfigfile["AWS_TOKEN"]
 azuretoken = parsedconfigfile["AZURE_TOKEN"]
 gcptoken = parsedconfigfile["GCP_TOKEN"]
