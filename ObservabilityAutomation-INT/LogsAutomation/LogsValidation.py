@@ -61,15 +61,15 @@ AuthToken = GetAuthToken.token
 
 TESTCASE1 = "\nTEST CASE-1 : VALIDATION OF AWS LOGS\n\n"
 CloudAppsValidation.AWS_Logs.AWSLogs(
-    config_and_report_directory,workdirectory, parsedreportfile, AuthToken, awstoken, portal, tenantid, starttimenanosec, endtimenanosec)
+    config_and_report_directory, parsedreportfile, AuthToken, awstoken, portal, tenantid, starttimenanosec, endtimenanosec)
 
 TESTCASE2 = "\n\nTEST CASE-2 : VALIDATION OF AZURE LOGS\n\n"
 CloudAppsValidation.Azure_Logs.AZURELogs(
-    config_and_report_directory, workdirectory, parsedreportfile, AuthToken, azuretoken, portal, tenantid, starttimenanosec, endtimenanosec)
+    config_and_report_directory, parsedreportfile, AuthToken, azuretoken, portal, tenantid, starttimenanosec, endtimenanosec)
 
 TESTCASE3 = "\n\nTEST CASE-3 : VALIDATION OF GCP LOGS\n\n"
 CloudAppsValidation.GCP_Logs.GCPLogs(
-    config_and_report_directory, workdirectory, parsedreportfile, AuthToken, gcptoken, portal, tenantid, starttimenanosec, endtimenanosec)
+    config_and_report_directory, parsedreportfile, AuthToken, gcptoken, portal, tenantid, starttimenanosec, endtimenanosec)
 
 TESTCASE4 = "\n\nTESTCASE-4 : CHECK ALL LABELS COMING OR NOT\n"
 TestCases.Labels.LabelsTest(config_and_report_directory,workdirectory, parsedreportfile,
