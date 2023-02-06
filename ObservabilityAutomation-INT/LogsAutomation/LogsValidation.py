@@ -29,7 +29,7 @@ import SendReport_to_Slack
 config_and_report_directory = os.getcwd()
 workdirectory = os.getcwd() + "/LogsAutomation"
 
-configfile = open(config_and_report_directory + "/INTAutomationconfig.yml")
+configfile = open(workdirectory + "/INTAutomationconfig.yml")
 parsedconfigfile = yaml.load(configfile, Loader=yaml.FullLoader)
 reportfile = open(config_and_report_directory + "/Report.yml")
 parsedreportfile = yaml.load(reportfile, Loader=yaml.FullLoader)
