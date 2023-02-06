@@ -11,8 +11,8 @@ AWS_TOKEN: rxcn3HgBTx2SAXXunMRSdJCzQY36Gbfq
 AZURE_TOKEN: F3gX8wYpPGhCRpes3PvMNJxXd6dxTQb8
 GCP_TOKEN: bxdhXCAFeHSd57dZaGsTDgk9hqwrnfg6
 AWS_BUCKETNAME : logsvalidation-int
-LOGS_GOOGLECHAT_WEBHOOK_URL: https://chat.googleapis.com/v1/spaces/AAAAV4jeHC8/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=tp_r--y2kXuf9VkUSCd3m4hhBmYHTVCUGMr6gJ4wmkU%3D
-TRACES_GOOGLECHAT_WEBHOOK_URL: https://chat.googleapis.com/v1/spaces/AAAASY0N78I/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=L34fEsEil_k1Y7cIjBvVfcCNfvDD3VUXS1aU0KCdf9g%3D
+LOGS_GOOGLECHAT_WEBHOOK_URL: https://chat.googleapis.com/v1/spaces/AAAASkbKjyE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=x1rUpPmWjpbNRqzbWAr1oYc7dFJhpJ2p2Wa9nXDhJSM%3D
+TRACES_GOOGLECHAT_WEBHOOK_URL: https://chat.googleapis.com/v1/spaces/AAAASkbKjyE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=x1rUpPmWjpbNRqzbWAr1oYc7dFJhpJ2p2Wa9nXDhJSM%3D
 SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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 
 Portal_Name: INT
 TracingService: PetClinicSampleApp
