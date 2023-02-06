@@ -7,7 +7,7 @@ def LabelValues(workdirectory, AuthToken, tenantid, portal, starttimeUNIX, endti
 
     reportfile = open(workdirectory + "/Report.yml")
     parsedreportfile = yaml.load(reportfile, Loader=yaml.FullLoader)
-    LabelValuesNotComing = parsedreportfile['LabelValuesNotComing']
+    Logs_LabelValuesNotComing = parsedreportfile['Logs_LabelValuesNotComing']
 
     payload = {}
     headers = {
@@ -50,13 +50,14 @@ def LabelValues(workdirectory, AuthToken, tenantid, portal, starttimeUNIX, endti
                 valuesdata = valuesresponsejson['data']
                 if valuesdata == "":
                     status = "Value Not Coming for " + i + " Label Attribute"
-                    LabelValuesNotComing.append(status)
+                    Logs_LabelValuesNotComing.append(status)
                 else:
                     status = "Value is Coming for " + i + " Label Attribute" 
-                    LabelValuesNotComing.append(status)   
+                    Logs_LabelValuesNotComing.append(status)   
             else:
                 status = value_response.reason
-                LabelValuesNotComing.append(status)
+                Logs_LabelValuesNotComing.append(status)
 
     with open(workdirectory + "/Report.yml", "w") as file:
         yaml.dump(parsedreportfile, file)
+

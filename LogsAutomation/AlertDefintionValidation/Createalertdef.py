@@ -62,3 +62,4 @@ def CreateLogAlertDefinition(workdirectory, AuthToken, portal, tenantid):
 
     with open(workdirectory + "/AlertDefintionValidation/alertinfo.yml", "w") as file:
         file.write("AlertComponent" + ': ' + alertid + "\n")
+

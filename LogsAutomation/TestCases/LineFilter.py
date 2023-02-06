@@ -37,13 +37,13 @@ def LineFilter(workdirectory,AuthToken,tenantid,portal,starttimenanosec,endtimen
         
         if "connectivity" not in message:
             status = "Validation Fail - Line Filter Functionality is not Working Properly"
-            parsedreportfile['LineFilter_Functionality'] = status 
+            parsedreportfile['Logs_LineFilter_Functionality'] = status 
         else:
             status = "Validation Pass - Line Filter Functionality is Working Properly"
-            parsedreportfile['LineFilter_Functionality'] = status
+            parsedreportfile['Logs_LineFilter_Functionality'] = status
     else:
         status = log_response.reason
-        parsedreportfile['LineFilter_Functionality'] = status
+        parsedreportfile['Logs_LineFilter_Functionality'] = status
                
     with open(workdirectory + "/Report.yml","w") as file :
         yaml.dump(parsedreportfile,file)

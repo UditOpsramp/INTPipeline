@@ -7,7 +7,7 @@ def QueryFilter(workdirectory,AuthToken,tenantid,portal,starttimeUNIX,endtimeUNI
 
     reportfile = open(workdirectory + "/Report.yml")
     parsedreportfile = yaml.load(reportfile,Loader=yaml.FullLoader) 
-    QueryFilter_FunctionalityList = parsedreportfile['QueryFilter_Functionality']
+    Logs_QueryFilter_Functionality = parsedreportfile['Logs_QueryFilter_Functionality']
     
     payload={}
     headers = {
@@ -76,18 +76,18 @@ def QueryFilter(workdirectory,AuthToken,tenantid,portal,starttimeUNIX,endtimeUNI
                         logsresultStatus=True    
                 if not logsresultStatus:
                     status = "QueryFilter : " + i + " : Validation Fail - Logs are not coming for that Queryfilter\n"
-                    QueryFilter_FunctionalityList.append(status)
+                    Logs_QueryFilter_Functionality.append(status)
                 else:
                     status = "QueryFilter : " + i + " : Validation Pass - Logs are coming for that Queryfilter\n"
-                    QueryFilter_FunctionalityList.append(status)
+                    Logs_QueryFilter_Functionality.append(status)
   
             else:
                 status = value_response.reason
-                QueryFilter_FunctionalityList.append(status)         
+                Logs_QueryFilter_Functionality.append(status)         
                 
     else:
         status = labels_response.reason
-        QueryFilter_FunctionalityList.append(status)       
+        Logs_QueryFilter_Functionality.append(status)       
         
     with open(workdirectory + "/Report.yml","w") as file :
         yaml.dump(parsedreportfile,file)

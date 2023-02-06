@@ -29,7 +29,7 @@ def QueryNotContainsLogs(workdirectory,AuthToken,portal,tenantid,starttimenanose
     cmd = "sudo chmod +x " + workdirectory + "/loggeneratorscript"
     sp.getoutput(cmd)
 
-    cmd = "sudo " + workdirectory + "/loggeneratorscript 40 1 100 600 0" 
+    cmd = "sudo " + workdirectory + "/./loggeneratorscript 40 1 100 600 0" 
     sp.getoutput(cmd)
     
     time.sleep(60)
@@ -72,14 +72,14 @@ def QueryNotContainsLogs(workdirectory,AuthToken,portal,tenantid,starttimenanose
                     logsresultStatus=True
                 if not logsresultStatus:    
                     status = "Validation Fail - Not Contains Query Filter Functionality is not Working Properly"
-                    parsedreportfile['NotContains_Functionality'] = status                    
+                    parsedreportfile['Logs_NotContains_Functionality'] = status                    
                 else:
                     status = "Validation Pass - Not Contains Query Filter Functionality is Working Properly"
-                    parsedreportfile['NotContains_Functionality'] = status                                 
+                    parsedreportfile['Logs_NotContains_Functionality'] = status                                 
 
             else:
                 status = response.reason
-                parsedreportfile['NotContains_Functionality'] = status 
+                parsedreportfile['Logs_NotContains_Functionality'] = status 
      
     with open(workdirectory + "/Report.yml","w") as file :
         yaml.dump(parsedreportfile,file)

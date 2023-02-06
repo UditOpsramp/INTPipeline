@@ -58,7 +58,7 @@ def CountLogs(workdirectory, AuthToken, portal, tenantid, starttimeUNIX, endtime
 
     # print(currenttime)
 
-    cmd = "sudo " + workdirectory + "/loggeneratorscript" + ' ' + str(NumberofLogs) + ' ' + str(
+    cmd = "sudo " + workdirectory + "/./loggeneratorscript" + ' ' + str(NumberofLogs) + ' ' + str(
         NumberofLogFiles) + ' ' + str(LogMsgLength) + ' ' + str(LogRotateSizeInMB) + ' ' + str(TimeToSleep)
     sp.getoutput(cmd)
 

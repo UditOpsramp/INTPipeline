@@ -11,7 +11,7 @@ def LabelsTest(workdirectory, AuthToken, tenantid, portal, starttimeUNIX, endtim
 
     reportfile = open(workdirectory + "/Report.yml")
     parsedreportfile = yaml.load(reportfile, Loader=yaml.FullLoader)
-    AllLabelStatus = parsedreportfile['AllLabelStatus']
+    Logs_AllLabelStatus = parsedreportfile['Logs_AllLabelStatus']
 
     PostingLabels = ["source","clusterName", "containerName", "eventCategory", "file_name", "file_path", "host", "level", "location", "logGroup", "logName", "logStream",
                      "messageType", "namespaceName", "operationName", "owner", "podName", "projectId", "resourceId", "resourceType", "subscriptionFilters", "tenantId", "type"]
@@ -48,7 +48,7 @@ def LabelsTest(workdirectory, AuthToken, tenantid, portal, starttimeUNIX, endtim
     cmd = "sudo chmod +x " + workdirectory + "/loggeneratorscript"
     sp.getoutput(cmd)
 
-    cmd = "sudo " + workdirectory + "/loggeneratorscript 1 1 100 600 0"
+    cmd = "sudo " + workdirectory + "/./loggeneratorscript 1 1 100 600 0"
     sp.getoutput(cmd)
 
     time.sleep(60)
@@ -77,13 +77,13 @@ def LabelsTest(workdirectory, AuthToken, tenantid, portal, starttimeUNIX, endtim
         for l in PostingLabels:
             if l not in labelsdata:
                 status = "Label " + l + " Not Coming"
-                AllLabelStatus.append(status)
+                Logs_AllLabelStatus.append(status)
             else:
                 status = "Label " + l + " is Coming" 
-                AllLabelStatus.append(status)   
+                Logs_AllLabelStatus.append(status)   
     else:
         status = labels_response.reason
-        AllLabelStatus.append(status)
+        Logs_AllLabelStatus.append(status)
 
     with open(workdirectory + "/Report.yml", "w") as file:
         yaml.dump(parsedreportfile, file)

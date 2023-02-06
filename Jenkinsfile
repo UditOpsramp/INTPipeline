@@ -6,9 +6,10 @@ pipeline {
         sh 'python3 --version'
       }
     }
-    stage('AutomationTesting') {
+    stage('ObservabilityAutomation') {
       steps {
         sh 'python3 LogsAutomation/LogsValidation.py'
+        sh 'python3 TracingAutomation/TracingValidation.py'
       }
     }
   }

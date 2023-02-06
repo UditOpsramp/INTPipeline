@@ -28,7 +28,7 @@ import SendReport_to_Slack
 
 workdirectory = os.getcwd()
 
-configfile = open(workdirectory + "/Logsvalidationconfig.yml")
+configfile = open(workdirectory + "/INT_Logs&Traces_automationconfig.yml")
 parsedconfigfile = yaml.load(configfile, Loader=yaml.FullLoader)
 portal = parsedconfigfile["portal_url"]
 tenantid = parsedconfigfile["client_id"]
@@ -37,7 +37,7 @@ clientsecret = parsedconfigfile["client_secret"]
 awstoken = parsedconfigfile["AWS_TOKEN"]
 azuretoken = parsedconfigfile["AZURE_TOKEN"]
 gcptoken = parsedconfigfile["GCP_TOKEN"]
-googlechat_webhook_url = parsedconfigfile["GOOGLECHAT_WEBHOOK_URL"]
+logs_googlechat_webhook_url = parsedconfigfile["LOGS_GOOGLECHAT_WEBHOOK_URL"]
 slack_webhook_url = parsedconfigfile["SLACK_WEBHOOK_URL"]
 portal_name = parsedconfigfile['Portal_Name']
 
@@ -154,7 +154,7 @@ gcplogsstatus = parsedreportfile['GCP_Logs']
 fluentdlogsstatus = parsedreportfile['FluentD_Logs']
 fluentbitlogsstatus = parsedreportfile['FluentBit_Logs']
 
-GOOGLECHAT_WEBHOOK_URL = googlechat_webhook_url
+GOOGLECHAT_WEBHOOK_URL = logs_googlechat_webhook_url
 
 SLACK_WEBHOOK_URL = slack_webhook_url
 

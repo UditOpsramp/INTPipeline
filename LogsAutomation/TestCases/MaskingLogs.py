@@ -47,7 +47,7 @@ def MaskingLogs(workdirectory,AuthToken,tenantid,portal,parsedconfigfile,startti
     cmd = "sudo chmod +x " + workdirectory + "/loggeneratorscript"
     sp.getoutput(cmd)
     
-    cmd = "sudo " + workdirectory + "/loggeneratorscript"+ ' ' + str(NumberofLogs) + ' ' + str(NumberofLogFiles) + ' ' + str(LogMsgLength) +  ' '     + str(LogRotateSizeInMB) + ' ' + str(TimeToSleep)
+    cmd = "sudo " + workdirectory + "/./loggeneratorscript"+ ' ' + str(NumberofLogs) + ' ' + str(NumberofLogFiles) + ' ' + str(LogMsgLength) +  ' '     + str(LogRotateSizeInMB) + ' ' + str(TimeToSleep)
     sp.getoutput(cmd)
     
     time.sleep(60)

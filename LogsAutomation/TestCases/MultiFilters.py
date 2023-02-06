@@ -29,14 +29,14 @@ def MultiFilter(workdirectory,AuthToken,tenantid,portal,starttimenanosec,endtime
         logsresultdata = logsdata['result'] 
         if not logsresultdata:
             status = "Validation Fail -  MultiFilter Functionality is not Working Properly"
-            parsedreportfile['MultiFilter_Functionalty'] = status 
+            parsedreportfile['Logs_MultiFilter_Functionalty'] = status 
         else:
             status = "Validation Pass - MultiFilter Functionality is  Working Properly"
-            parsedreportfile['MultiFilter_Functionalty'] = status 
+            parsedreportfile['Logs_MultiFilter_Functionalty'] = status 
             
     else:
         status = log_response.reason
-        parsedreportfile['MultiFilter_Functionalty'] = status    
+        parsedreportfile['Logs_MultiFilter_Functionalty'] = status    
         
     with open(workdirectory + "/Report.yml","w") as file :
         yaml.dump(parsedreportfile,file)
