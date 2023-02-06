@@ -26,10 +26,8 @@ import LogForwardApps.Fluentbit_Logs
 import SendReport_to_GooleChat
 import SendReport_to_Slack
 
-config_and_report_directory = os.getcwd()
-print(config_and_report_directory)
+config_and_report_directory = os.getcwd() + "ObservabilityAutomation-INT"
 workdirectory = os.getcwd() + "/LogsAutomation"
-print(workdirectory)
 
 configfile = open(config_and_report_directory + "/INTAutomationconfig.yml")
 parsedconfigfile = yaml.load(configfile, Loader=yaml.FullLoader)
@@ -37,8 +35,8 @@ reportfile = open(config_and_report_directory + "/Report.yml")
 parsedreportfile = yaml.load(reportfile, Loader=yaml.FullLoader)
 portal = parsedconfigfile["portal_url"]
 tenantid = parsedconfigfile["client_id"]
-clientkey = parsedconfigfile["client_key"]
-clientsecret = parsedconfigfile["client_secret"]
+clientkey = parsedconfigfile["partner_key"]
+clientsecret = parsedconfigfile["partner_secret"]
 awstoken = parsedconfigfile["AWS_TOKEN"]
 azuretoken = parsedconfigfile["AZURE_TOKEN"]
 gcptoken = parsedconfigfile["GCP_TOKEN"]
@@ -61,79 +59,79 @@ AuthToken = GetAuthToken.token
 
 TESTCASE1 = "\nTEST CASE-1 : VALIDATION OF AWS LOGS\n\n"
 CloudAppsValidation.AWS_Logs.AWSLogs(
-    config_and_report_directory,workdirectory, parsedreportfile, AuthToken, awstoken, portal, tenantid, starttimenanosec, endtimenanosec)
+    config_and_report_directory, parsedreportfile, AuthToken, awstoken, portal, tenantid, starttimenanosec, endtimenanosec)
 
 TESTCASE2 = "\n\nTEST CASE-2 : VALIDATION OF AZURE LOGS\n\n"
 CloudAppsValidation.Azure_Logs.AZURELogs(
-    config_and_report_directory, workdirectory, parsedreportfile, AuthToken, azuretoken, portal, tenantid, starttimenanosec, endtimenanosec)
+    config_and_report_directory, parsedreportfile, AuthToken, azuretoken, portal, tenantid, starttimenanosec, endtimenanosec)
 
 TESTCASE3 = "\n\nTEST CASE-3 : VALIDATION OF GCP LOGS\n\n"
 CloudAppsValidation.GCP_Logs.GCPLogs(
-    config_and_report_directory, workdirectory, parsedreportfile, AuthToken, gcptoken, portal, tenantid, starttimenanosec, endtimenanosec)
+    config_and_report_directory, parsedreportfile, AuthToken, gcptoken, portal, tenantid, starttimenanosec, endtimenanosec)
 
 TESTCASE4 = "\n\nTESTCASE-4 : CHECK ALL LABELS COMING OR NOT\n"
-TestCases.Labels.LabelsTest(config_and_report_directory,workdirectory, parsedreportfile,
+TestCases.Labels.LabelsTest(config_and_report_directory, workdirectory, parsedreportfile,
                             AuthToken, tenantid, portal, starttimeUNIX, endtimeUNIX)
 
 TESTCASE5 = "\n\nTESTCASE-5 : CHECK ALL LABELS-VALUES COMING OR NOT\n"
 TestCases.Label_Values.LabelValues(
-    config_and_report_directory,workdirectory, parsedreportfile, AuthToken, tenantid, portal, starttimeUNIX, endtimeUNIX)
+    config_and_report_directory, parsedreportfile, AuthToken, tenantid, portal, starttimeUNIX, endtimeUNIX)
 
 TESTCASE6 = "\n\nTEST CASE-6 : VALIDATION OF APP'S LOGS\n\n"
 TestCases.Apps_Logs.AppLogs(
-    config_and_report_directory,workdirectory, parsedreportfile, AuthToken, portal, tenantid, starttimenanosec, endtimenanosec)
+    config_and_report_directory, workdirectory, parsedreportfile, AuthToken, portal, tenantid, starttimenanosec, endtimenanosec)
 
 TESTCASE7 = "\n\nTEST CASE-7 : VALIDATION OF COUNT OF LOGS\n\n"
 TestCases.Count_Logs.CountLogs(
-    config_and_report_directory,workdirectory, parsedreportfile, parsedconfigfile, AuthToken, portal, tenantid, starttimeUNIX, endtimeUNIX)
+    config_and_report_directory, workdirectory, parsedreportfile, parsedconfigfile, AuthToken, portal, tenantid, starttimeUNIX, endtimeUNIX)
 
 TESTCASE8 = "\n\nTEST CASE-8 : VALIDATION OF LOGS FOR EACH HOST\n\n"
-TestCases.Hosts_Logs.HostLogs(config_and_report_directory,workdirectory, parsedreportfile, AuthToken, tenantid, portal,
+TestCases.Hosts_Logs.HostLogs(config_and_report_directory, parsedreportfile, AuthToken, tenantid, portal,
                               starttimeUNIX, endtimeUNIX, starttimenanosec, endtimenanosec)
 
 TESTCASE9 = "\n\nTEST CASE-9 : VALIDATION OF NOT CONTAINS FILTER FUNCTIONALITY\n\n"
 TestCases.NotContainsFilter.QueryNotContainsLogs(
-    config_and_report_directory,workdirectory, parsedreportfile, parsedconfigfile, AuthToken, portal, tenantid, starttimenanosec, endtimenanosec)
+    config_and_report_directory, workdirectory, parsedreportfile, parsedconfigfile, AuthToken, portal, tenantid, starttimenanosec, endtimenanosec)
 
 TESTCASE10 = "\n\nTEST CASE-10 : VALIDATION OF MULTI-FILTERING FUNCTIONALITY\n\n"
 TestCases.MultiFilters.MultiFilter(
-    config_and_report_directory,workdirectory, parsedreportfile, AuthToken, tenantid, portal, starttimenanosec, endtimenanosec)
+    config_and_report_directory, parsedreportfile, AuthToken, tenantid, portal, starttimenanosec, endtimenanosec)
 
 TESTCASE11 = "\n\nTEST CASE-11 : VALIDATION OF LINE-FILTERING FUNCTIONALITY\n\n"
 TestCases.LineFilter.LineFilter(
-    config_and_report_directory,workdirectory, parsedreportfile, AuthToken, tenantid, portal, starttimenanosec, endtimenanosec)
+    config_and_report_directory, parsedreportfile, AuthToken, tenantid, portal, starttimenanosec, endtimenanosec)
 
 TESTCASE12 = "\n\nTEST CASE-12 : VALIDATION OF FILTERING LOGS FUNCTIONALITY\n\n"
 TestCases.FilteringLogs.FilteringLogs(
-    config_and_report_directory,workdirectory, parsedreportfile, parsedconfigfile, AuthToken, tenantid, portal, starttimenanosec, endtimenanosec)
+    config_and_report_directory, workdirectory, parsedreportfile, parsedconfigfile, AuthToken, tenantid, portal, starttimenanosec, endtimenanosec)
 
 TESTCASE13 = "\n\nTEST CASE-13 : VALIDATION OF MASKING LOGS FUNCTIONALITY\n\n"
 TestCases.MaskingLogs.MaskingLogs(
-    config_and_report_directory,workdirectory, parsedreportfile, parsedconfigfile, AuthToken, tenantid, portal, starttimenanosec, endtimenanosec)
+    config_and_report_directory, workdirectory, parsedreportfile, parsedconfigfile, AuthToken, tenantid, portal, starttimenanosec, endtimenanosec)
 
 TESTCASE14 = "\n\nTEST CASE-14 : VALIDATION OF FLUENTD LOGS\n\n"
 LogForwardApps.Fluentd_Logs.FluentDLogs(
-    config_and_report_directory,workdirectory, parsedreportfile, AuthToken, portal, tenantid, starttimenanosec, endtimenanosec)
+    config_and_report_directory, parsedreportfile, AuthToken, portal, tenantid, starttimenanosec, endtimenanosec)
 
 TESTCASE15 = "\n\nTEST CASE-15 : VALIDATION OF FLUENT-BIT LOGS\n\n"
 LogForwardApps.Fluentbit_Logs.FluentBitLogs(
-    config_and_report_directory,workdirectory, parsedreportfile, AuthToken, portal, tenantid, starttimenanosec, endtimenanosec)
+    config_and_report_directory, parsedreportfile, AuthToken, portal, tenantid, starttimenanosec, endtimenanosec)
 
 TESTCASE16 = "\n\nTEST CASE-16 : VALIDATION OF QUERY FILTERS FUNCTIONALITY FOR EACH ATTRIBUTE"
 TestCases.QueryFilters.QueryFilter(
-    config_and_report_directory,workdirectory, parsedreportfile, AuthToken, tenantid, portal, starttimeUNIX, endtimeUNIX, starttimenanosec, endtimenanosec)
+    config_and_report_directory, parsedreportfile, AuthToken, tenantid, portal, starttimeUNIX, endtimeUNIX, starttimenanosec, endtimenanosec)
 
 TESTCASE17 = "\n\nTEST CASE-17 : VALIDATION OF CREATION OF LOG-ALERT DEFINITION\n\n"
 AlertDefintionValidation.Createalertdef.CreateLogAlertDefinition(
-    config_and_report_directory,workdirectory, parsedreportfile, AuthToken, portal, tenantid)
+    config_and_report_directory, workdirectory, parsedreportfile, AuthToken, portal, tenantid)
 
 TESTCASE18 = "\n\nTEST CASE-18 : VALIDATION OF ALERT GENERATION\n\n"
 AlertDefintionValidation.GetAlertDetails.GetAlertDetails(
-   config_and_report_directory, workdirectory, parsedreportfile, AuthToken, portal, tenantid)
+    config_and_report_directory, workdirectory, parsedreportfile, AuthToken, portal, tenantid)
 
 TESTCASE19 = "\n\nTEST CASE-19 : VALIDATION OF DELETION OF LOG-ALERT DEFINITION\n\n"
 AlertDefintionValidation.DeleteAlertDefinition.DeleteLogAlertDefinition(
-    config_and_report_directory,workdirectory, parsedreportfile, AuthToken, portal, tenantid)
+    config_and_report_directory, workdirectory, parsedreportfile, AuthToken, portal, tenantid)
 
 GeneratedLogsCount = TestCases.Count_Logs.generatedlogscountvalue
 Logscomingonportal = TestCases.Count_Logs.logscomingonportal

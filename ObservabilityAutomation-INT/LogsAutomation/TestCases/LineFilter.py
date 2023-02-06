@@ -4,7 +4,7 @@ import json
 import yaml
 
 
-def LineFilter(config_and_report_directory,workdirectory, parsedreportfile, AuthToken, tenantid, portal, starttimenanosec, endtimenanosec):
+def LineFilter(config_and_report_directory, parsedreportfile, AuthToken, tenantid, portal, starttimenanosec, endtimenanosec):
 
     payload = {}
     headers = {

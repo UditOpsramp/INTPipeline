@@ -3,7 +3,7 @@ import requests
 import yaml
 
 
-def MultiFilter(config_and_report_directory,workdirectory, parsedreportfile, AuthToken, tenantid, portal, starttimenanosec, endtimenanosec):
+def MultiFilter(config_and_report_directory, parsedreportfile, AuthToken, tenantid, portal, starttimenanosec, endtimenanosec):
 
     payload = {}
     headers = {

@@ -4,7 +4,7 @@ import requests
 import yaml
 
 
-def LabelValues(config_and_report_directory,workdirectory, parsedreportfile, AuthToken, tenantid, portal, starttimeUNIX, endtimeUNIX):
+def LabelValues(config_and_report_directory, parsedreportfile, AuthToken, tenantid, portal, starttimeUNIX, endtimeUNIX):
 
     Logs_LabelValuesNotComing = parsedreportfile['Logs_LabelValuesNotComing']
 

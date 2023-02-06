@@ -3,7 +3,7 @@ import requests
 import yaml
 
 
-def HostLogs(config_and_report_directory,workdirectory, parsedreportfile, AuthToken, tenantid, portal, starttimeUNIX, endtimeUNIX, starttimenanosec, endtimenanosec):
+def HostLogs(config_and_report_directory, parsedreportfile, AuthToken, tenantid, portal, starttimeUNIX, endtimeUNIX, starttimenanosec, endtimenanosec):
 
     payload = {}
     headers = {

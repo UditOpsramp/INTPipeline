@@ -3,7 +3,7 @@ import requests
 import yaml
 
 
-def QueryFilter(config_and_report_directory,workdirectory, parsedreportfile, AuthToken, tenantid, portal, starttimeUNIX, endtimeUNIX, starttimenanosec, endtimenanosec):
+def QueryFilter(config_and_report_directory, parsedreportfile, AuthToken, tenantid, portal, starttimeUNIX, endtimeUNIX, starttimenanosec, endtimenanosec):
 
     Logs_QueryFilter_Functionality = parsedreportfile['Logs_QueryFilter_Functionality']
 
