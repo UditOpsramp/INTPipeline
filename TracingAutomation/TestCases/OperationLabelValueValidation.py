@@ -3,9 +3,15 @@
 import requests
 import yaml
 import time
+import subprocess as sp
 
 
 def OperationLabelValue(workdirectory, AuthToken, tenantid, portal, tracingoperation, starttimemilisec, endtimemilisec, parsedreportfile):
+
+    cmd= "sudo systemctl restart opsramp-agent"
+    sp.getoutput(cmd)
+    
+    time.sleep(30)
 
     petclinicserverurl = "http://172.25.220.220:8080"
 

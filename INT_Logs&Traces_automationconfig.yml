@@ -3,18 +3,17 @@ LogRotateSizeInMB: 600
 NumberofLogFiles: 1
 NumberofLogs: 100000
 TimeToSleep: 0
-client_id: 037deee7-83d1-467b-9cdb-802dc2bad263
+client_id: 38ec5089-f983-493b-b21f-9ae2dabef66b
 client_key: jdrh8UepzYZ7UesMKzCNXfcXZ2Z6yJGt
 client_secret: fhDmG4CJU7Wr27V3EesGh7v7Navq7kb97bctBN4ffCR8AgzdSsaUbdrd6CX3HSmF
 portal_url: int.opsramp.net
-AWS_TOKEN: rxcn3HgBTx2SAXXunMRSdJCzQY36Gbfq
-AZURE_TOKEN: F3gX8wYpPGhCRpes3PvMNJxXd6dxTQb8
-GCP_TOKEN: bxdhXCAFeHSd57dZaGsTDgk9hqwrnfg6
-AWS_BUCKETNAME : logsvalidation-int
+AWS_TOKEN: KE6hNSS7MmfcCQu83nt8bGYJzRZUXGp8
+AZURE_TOKEN: E7XwPbKmC8F4FPcJqP6zYrnbTd7tJwEC
+GCP_TOKEN: VXGsXkADr2NDb6x4sN5P4DMN3nuC9N3G
+AWS_BUCKETNAME : logs-validation
 LOGS_GOOGLECHAT_WEBHOOK_URL: https://chat.googleapis.com/v1/spaces/AAAAV4jeHC8/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=tp_r--y2kXuf9VkUSCd3m4hhBmYHTVCUGMr6gJ4wmkU%3D
 TRACES_GOOGLECHAT_WEBHOOK_URL: https://chat.googleapis.com/v1/spaces/AAAASY0N78I/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=L34fEsEil_k1Y7cIjBvVfcCNfvDD3VUXS1aU0KCdf9g%3D
 SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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 
 Portal_Name: INT
 TracingService: PetClinicSampleApp
 TracingOperation: /vets.html
-ArchivalFileSize: 20M
