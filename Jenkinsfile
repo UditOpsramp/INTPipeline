@@ -8,7 +8,7 @@ pipeline {
     }
     stage('AutomationTesting') {
       steps {
-        sh 'python3 LogsValidation.py'
+        sh 'python3 LogsAutomation/LogsValidation.py'
       }
     }
   }
