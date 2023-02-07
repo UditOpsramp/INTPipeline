@@ -9,6 +9,8 @@ import subprocess as sp
 
 def ServiceTracingData(config_and_report_directory, AuthToken, tenantid, portal, tracingservice, starttimenanosec, endtimenanosec, parsedreportfile):
 
+    global servicevalue
+
     cmd= "sudo systemctl restart opsramp-agent"
     sp.getoutput(cmd)
     
@@ -46,9 +48,9 @@ def ServiceTracingData(config_and_report_directory, AuthToken, tenantid, portal,
         tracesdatalist = tracedata_responsejson['traces']
 
         for j in tracesdatalist:
-            tracingservicedata = j['service']
+            servicevalue = j['service']
 
-        if tracingservicedata == tracingservice:
+        if servicevalue == tracingservice:
             status = "Validation Pass : Traces for Service Name " + \
                 tracingservice + " are Coming"
             parsedreportfile['TracingServiceDataStatus'] = status
