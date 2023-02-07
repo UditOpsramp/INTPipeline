@@ -4,7 +4,7 @@ import requests
 
 
 def send_googlechat_message(GOOGLECHAT_WEBHOOK_URL, portal_name, currentdate, TESTCASE1, TESTCASE2, TESTCASE3,
-                            TESTCASE4, TESTCASE5, TESTCASE6, TESTCASE7, TESTCASE8,TESTCASE9, tracescomingstatus,labelvaluesnotcoming, servicelabelvaluestatus, opearationlabelvaluestatus, tracingservicenamestatus, tracingservicedatastatus, tracingoperationstatus, tracingoperationdatastatus, queryfilter_functionalitylist):
+                            TESTCASE4, TESTCASE5, TESTCASE6, TESTCASE7, TESTCASE8,TESTCASE9, tracescomingstatus,traces_labelvaluesnotcoming, servicelabelvaluestatus, opearationlabelvaluestatus, tracingservicenamestatus, tracingservicedatastatus, tracingoperationstatus, tracingoperationdatastatus, traces_queryfilter_functionalitylist):
 
     if "Pass" in tracescomingstatus:
         test1status = '<b><font color=\"#5AAF00\">' + \
@@ -14,7 +14,7 @@ def send_googlechat_message(GOOGLECHAT_WEBHOOK_URL, portal_name, currentdate, TE
             tracescomingstatus + '</font></b>'
 
     test2status = ''
-    for j in labelvaluesnotcoming : 
+    for j in traces_labelvaluesnotcoming : 
         if "Not" in j:
             labelvaluestatus = '<b><font color=\"#D70000\">' + \
             j + '</font></b>'
@@ -71,7 +71,7 @@ def send_googlechat_message(GOOGLECHAT_WEBHOOK_URL, portal_name, currentdate, TE
             tracingoperationdatastatus + '</font></b>'
 
     test9status = ''
-    for k in queryfilter_functionalitylist:
+    for k in traces_queryfilter_functionalitylist:
         if "Pass" in k:
             queryfilterstatus = '<b><font color=\"#5AAF00\">' + k + '</font></b>'
             test9status = test9status + "\n" + queryfilterstatus
