@@ -4,8 +4,8 @@ import requests
 import json
 
 
-def send_slack_message(SLACK_WEBHOOK_URL, portal_name, currentdate,alllabelstatus,labelvaluesnotcoming, appslogsstaus, countlogsstaus, hostlogsstatus, queryfilterstatuslist,
-                       notcontainsfunctionalitystatus, multifilterfunctionalitystatus, linefilterfunctionalitystatus, filteringlogsfunctionalitystatus, maskinglogsfunctionalitystatus, logalertcreationfunctionalitystatus, logalertgenerationfunctionalitystatus, logalertdeletionfunctionalitystatus, awslogsstatus, azurelogsstatus, gcplogsstatus, fluentdlogsstatus, fluentbitlogsstatus):
+def send_slack_message(SLACK_WEBHOOK_URL, portal_name, currentdate,logs_alllabelstatus,logs_labelvaluesnotcoming, appslogsstaus, countlogsstaus, hostlogsstatus, logs_queryfilterstatuslist,
+                       logs_notcontainsfunctionalitystatus, logs_multifilter_functionaltystatus, logs_linefilter_functionalitystatus, filteringlogsfunctionalitystatus, maskinglogsfunctionalitystatus, logalertcreationfunctionalitystatus, logalertgenerationfunctionalitystatus, logalertdeletionfunctionalitystatus, awslogsstatus, azurelogsstatus, gcplogsstatus, fluentdlogsstatus, fluentbitlogsstatus):
 
     FailTestCase_color = ""
     PassTestCase_color = ""
@@ -14,7 +14,7 @@ def send_slack_message(SLACK_WEBHOOK_URL, portal_name, currentdate,alllabelstatu
     failedtestcase = ""
     passtestcase = ""
 
-    for i in [appslogsstaus, countlogsstaus, hostlogsstatus, notcontainsfunctionalitystatus, multifilterfunctionalitystatus, linefilterfunctionalitystatus, filteringlogsfunctionalitystatus, maskinglogsfunctionalitystatus, awslogsstatus, azurelogsstatus, gcplogsstatus, fluentdlogsstatus, fluentbitlogsstatus, logalertcreationfunctionalitystatus, logalertgenerationfunctionalitystatus, logalertdeletionfunctionalitystatus]:
+    for i in [appslogsstaus, countlogsstaus, hostlogsstatus, logs_notcontainsfunctionalitystatus, logs_multifilter_functionaltystatus, logs_linefilter_functionalitystatus, filteringlogsfunctionalitystatus, maskinglogsfunctionalitystatus, awslogsstatus, azurelogsstatus, gcplogsstatus, fluentdlogsstatus, fluentbitlogsstatus, logalertcreationfunctionalitystatus, logalertgenerationfunctionalitystatus, logalertdeletionfunctionalitystatus]:
         if "Fail" in i:
             FailTestCaseList.append(i)
             FailTestCase_color = "#D70000"
@@ -23,7 +23,7 @@ def send_slack_message(SLACK_WEBHOOK_URL, portal_name, currentdate,alllabelstatu
                 PassTestCaseList.append(i)
                 PassTestCase_color = "#5AAF00"
                 
-    for j in [alllabelstatus]:
+    for j in [logs_alllabelstatus]:
         for m in j :
             if "Not" in m:
                 FailTestCaseList.append(m)  
@@ -32,7 +32,7 @@ def send_slack_message(SLACK_WEBHOOK_URL, portal_name, currentdate,alllabelstatu
                 PassTestCaseList.append(m)
                 PassTestCase_color = "#5AAF00"
     
-    for k in [labelvaluesnotcoming]:
+    for k in [logs_labelvaluesnotcoming]:
         for n in k :
             if "Not" in n:
                 FailTestCaseList.append(n)  
@@ -41,7 +41,7 @@ def send_slack_message(SLACK_WEBHOOK_URL, portal_name, currentdate,alllabelstatu
                 PassTestCaseList.append(n)
                 PassTestCase_color = "#5AAF00"   
         
-    for i in queryfilterstatuslist:
+    for i in logs_queryfilterstatuslist:
         if "Fail" in i:
             FailTestCaseList.append(i)
             FailTestCase_color = "#D70000"

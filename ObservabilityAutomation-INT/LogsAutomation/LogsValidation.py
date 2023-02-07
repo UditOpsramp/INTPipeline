@@ -62,99 +62,101 @@ TESTCASE1 = "\nTEST CASE-1 : VALIDATION OF AWS LOGS\n\n"
 CloudAppsValidation.AWS_Logs.AWSLogs(
     config_and_report_directory, parsedreportfile, AuthToken, awstoken, portal, tenantid, starttimenanosec, endtimenanosec)
 
+TESTCASE2 = "\nTEST CASE-2 : VALIDATION OF AWS LOGS\n\n"
 CloudAppsValidation.AWSLambda_Logs.AWSLambda_Logs(
     config_and_report_directory, parsedreportfile, AuthToken, awstoken, portal, tenantid, starttimenanosec, endtimenanosec)
 
-TESTCASE2 = "\n\nTEST CASE-2 : VALIDATION OF AZURE LOGS\n\n"
+TESTCASE3 = "\n\nTEST CASE-3 : VALIDATION OF AZURE LOGS\n\n"
 CloudAppsValidation.Azure_Logs.AZURELogs(
     config_and_report_directory, parsedreportfile, AuthToken, azuretoken, portal, tenantid, starttimenanosec, endtimenanosec)
 
-TESTCASE3 = "\n\nTEST CASE-3 : VALIDATION OF GCP LOGS\n\n"
+TESTCASE4 = "\n\nTEST CASE-4 : VALIDATION OF GCP LOGS\n\n"
 CloudAppsValidation.GCP_Logs.GCPLogs(
     config_and_report_directory, parsedreportfile, AuthToken, gcptoken, portal, tenantid, starttimenanosec, endtimenanosec)
 
-TESTCASE4 = "\n\nTESTCASE-4 : CHECK ALL LABELS COMING OR NOT\n"
+TESTCASE5 = "\n\nTESTCASE-5 : CHECK ALL LABELS COMING OR NOT\n"
 TestCases.Labels.LabelsTest(config_and_report_directory, workdirectory, parsedreportfile,
                             AuthToken, tenantid, portal, starttimeUNIX, endtimeUNIX)
 
-TESTCASE5 = "\n\nTESTCASE-5 : CHECK ALL LABELS-VALUES COMING OR NOT\n"
+TESTCASE6 = "\n\nTESTCASE-6 : CHECK ALL LABELS-VALUES COMING OR NOT\n"
 TestCases.Label_Values.LabelValues(
     config_and_report_directory, parsedreportfile, AuthToken, tenantid, portal, starttimeUNIX, endtimeUNIX)
 
-TESTCASE6 = "\n\nTEST CASE-6 : VALIDATION OF APP'S LOGS\n\n"
+TESTCASE7 = "\n\nTEST CASE-7 : VALIDATION OF APP'S LOGS\n\n"
 TestCases.Apps_Logs.AppLogs(
     config_and_report_directory, workdirectory, parsedreportfile, AuthToken, portal, tenantid, starttimenanosec, endtimenanosec)
 
-TESTCASE7 = "\n\nTEST CASE-7 : VALIDATION OF COUNT OF LOGS\n\n"
+TESTCASE8 = "\n\nTEST CASE-8 : VALIDATION OF COUNT OF LOGS\n\n"
 TestCases.Count_Logs.CountLogs(
     config_and_report_directory, workdirectory, parsedreportfile, parsedconfigfile, AuthToken, portal, tenantid, starttimeUNIX, endtimeUNIX)
 
-TESTCASE8 = "\n\nTEST CASE-8 : VALIDATION OF LOGS FOR EACH HOST\n\n"
+TESTCASE9 = "\n\nTEST CASE-9 : VALIDATION OF LOGS FOR EACH HOST\n\n"
 TestCases.Hosts_Logs.HostLogs(config_and_report_directory, parsedreportfile, AuthToken, tenantid, portal,
                               starttimeUNIX, endtimeUNIX, starttimenanosec, endtimenanosec)
 
-TESTCASE9 = "\n\nTEST CASE-9 : VALIDATION OF NOT CONTAINS FILTER FUNCTIONALITY\n\n"
+TESTCASE10 = "\n\nTEST CASE-10 : VALIDATION OF NOT CONTAINS FILTER FUNCTIONALITY\n\n"
 TestCases.NotContainsFilter.QueryNotContainsLogs(
     config_and_report_directory, workdirectory, parsedreportfile, parsedconfigfile, AuthToken, portal, tenantid, starttimenanosec, endtimenanosec)
 
-TESTCASE10 = "\n\nTEST CASE-10 : VALIDATION OF MULTI-FILTERING FUNCTIONALITY\n\n"
+TESTCASE11 = "\n\nTEST CASE-11 : VALIDATION OF MULTI-FILTERING FUNCTIONALITY\n\n"
 TestCases.MultiFilters.MultiFilter(
     config_and_report_directory, parsedreportfile, AuthToken, tenantid, portal, starttimenanosec, endtimenanosec)
 
-TESTCASE11 = "\n\nTEST CASE-11 : VALIDATION OF LINE-FILTERING FUNCTIONALITY\n\n"
+TESTCASE12 = "\n\nTEST CASE-12 : VALIDATION OF LINE-FILTERING FUNCTIONALITY\n\n"
 TestCases.LineFilter.LineFilter(
     config_and_report_directory, parsedreportfile, AuthToken, tenantid, portal, starttimenanosec, endtimenanosec)
 
-TESTCASE12 = "\n\nTEST CASE-12 : VALIDATION OF FILTERING LOGS FUNCTIONALITY\n\n"
+TESTCASE13 = "\n\nTEST CASE-13 : VALIDATION OF FILTERING LOGS FUNCTIONALITY\n\n"
 TestCases.FilteringLogs.FilteringLogs(
     config_and_report_directory, workdirectory, parsedreportfile, parsedconfigfile, AuthToken, tenantid, portal, starttimenanosec, endtimenanosec)
 
-TESTCASE13 = "\n\nTEST CASE-13 : VALIDATION OF MASKING LOGS FUNCTIONALITY\n\n"
+TESTCASE14 = "\n\nTEST CASE-14 : VALIDATION OF MASKING LOGS FUNCTIONALITY\n\n"
 TestCases.MaskingLogs.MaskingLogs(
     config_and_report_directory, workdirectory, parsedreportfile, parsedconfigfile, AuthToken, tenantid, portal, starttimenanosec, endtimenanosec)
 
-TESTCASE14 = "\n\nTEST CASE-14 : VALIDATION OF FLUENTD LOGS\n\n"
+TESTCASE15 = "\n\nTEST CASE-15 : VALIDATION OF FLUENTD LOGS\n\n"
 LogForwardApps.Fluentd_Logs.FluentDLogs(
     config_and_report_directory, parsedreportfile, AuthToken, portal, tenantid, starttimenanosec, endtimenanosec)
 
-TESTCASE15 = "\n\nTEST CASE-15 : VALIDATION OF FLUENT-BIT LOGS\n\n"
+TESTCASE16 = "\n\nTEST CASE-16 : VALIDATION OF FLUENT-BIT LOGS\n\n"
 LogForwardApps.Fluentbit_Logs.FluentBitLogs(
     config_and_report_directory, parsedreportfile, AuthToken, portal, tenantid, starttimenanosec, endtimenanosec)
 
-TESTCASE16 = "\n\nTEST CASE-16 : VALIDATION OF QUERY FILTERS FUNCTIONALITY FOR EACH ATTRIBUTE"
+TESTCASE17 = "\n\nTEST CASE-17 : VALIDATION OF QUERY FILTERS FUNCTIONALITY FOR EACH ATTRIBUTE"
 TestCases.QueryFilters.QueryFilter(
     config_and_report_directory, parsedreportfile, AuthToken, tenantid, portal, starttimeUNIX, endtimeUNIX, starttimenanosec, endtimenanosec)
 
-TESTCASE17 = "\n\nTEST CASE-17 : VALIDATION OF CREATION OF LOG-ALERT DEFINITION\n\n"
+TESTCASE18 = "\n\nTEST CASE-18 : VALIDATION OF CREATION OF LOG-ALERT DEFINITION\n\n"
 AlertDefintionValidation.Createalertdef.CreateLogAlertDefinition(
     config_and_report_directory, workdirectory, parsedreportfile, AuthToken, portal, tenantid)
 
-TESTCASE18 = "\n\nTEST CASE-18 : VALIDATION OF ALERT GENERATION\n\n"
+TESTCASE19 = "\n\nTEST CASE-19 : VALIDATION OF ALERT GENERATION\n\n"
 AlertDefintionValidation.GetAlertDetails.GetAlertDetails(
     config_and_report_directory, workdirectory, parsedreportfile, AuthToken, portal, tenantid)
 
-TESTCASE19 = "\n\nTEST CASE-19 : VALIDATION OF DELETION OF LOG-ALERT DEFINITION\n\n"
+TESTCASE20 = "\n\nTEST CASE-20 : VALIDATION OF DELETION OF LOG-ALERT DEFINITION\n\n"
 AlertDefintionValidation.DeleteAlertDefinition.DeleteLogAlertDefinition(
     config_and_report_directory, workdirectory, parsedreportfile, AuthToken, portal, tenantid)
 
 GeneratedLogsCount = TestCases.Count_Logs.generatedlogscountvalue
 Logscomingonportal = TestCases.Count_Logs.logscomingonportal
 
-alllabelstatus = parsedreportfile['AllLabelStatus']
-labelvaluesnotcoming = parsedreportfile['LabelValuesNotComing']
+logs_alllabelstatus = parsedreportfile['Logs_AllLabelStatus']
+logs_labelvaluesnotcoming = parsedreportfile['Logs_LabelValuesNotComing']
 appslogsstaus = parsedreportfile['Source_Logs']
 countlogsstaus = parsedreportfile['Count_Logs']
 hostlogsstatus = parsedreportfile['Host_Logs']
-queryfilterstatuslist = parsedreportfile['QueryFilter_Functionality']
-notcontainsfunctionalitystatus = parsedreportfile['NotContains_Functionality']
-multifilterfunctionalitystatus = parsedreportfile['MultiFilter_Functionalty']
-linefilterfunctionalitystatus = parsedreportfile['LineFilter_Functionality']
+logs_queryfilterstatuslist = parsedreportfile['Logs_QueryFilter_Functionality']
+logs_notcontainsfunctionalitystatus = parsedreportfile['Logs_NotContains_Functionality']
+logs_multifilter_functionaltystatus = parsedreportfile['Logs_MultiFilter_Functionalty']
+logs_linefilter_functionalitystatus = parsedreportfile['Logs_LineFilter_Functionality']
 filteringlogsfunctionalitystatus = parsedreportfile['FilteringLogs_Functionality']
 maskinglogsfunctionalitystatus = parsedreportfile['MaskingLogs_Functionality']
 logalertcreationfunctionalitystatus = parsedreportfile['LogAlertCreation']
 logalertgenerationfunctionalitystatus = parsedreportfile['LogAlertGeneration']
 logalertdeletionfunctionalitystatus = parsedreportfile['LogAlertDeletion']
 awslogsstatus = parsedreportfile['AWS_Logs']
+awslambdalogsstatus = parsedreportfile['AWSLambda_Logs']
 azurelogsstatus = parsedreportfile['AZURE_Logs']
 gcplogsstatus = parsedreportfile['GCP_Logs']
 fluentdlogsstatus = parsedreportfile['FluentD_Logs']
@@ -164,11 +166,11 @@ GOOGLECHAT_WEBHOOK_URL = logs_googlechat_webhook_url
 
 SLACK_WEBHOOK_URL = slack_webhook_url
 
-SendReport_to_GooleChat.send_googlechat_message(GOOGLECHAT_WEBHOOK_URL, portal_name, currentdate, TESTCASE1, TESTCASE2, TESTCASE3, TESTCASE4, TESTCASE5, TESTCASE6, TESTCASE7, TESTCASE8, TESTCASE9, TESTCASE10, TESTCASE11, TESTCASE12, TESTCASE13, TESTCASE14, TESTCASE15, TESTCASE16, TESTCASE17, TESTCASE18, TESTCASE19, alllabelstatus, labelvaluesnotcoming, appslogsstaus, countlogsstaus, GeneratedLogsCount, Logscomingonportal, hostlogsstatus, queryfilterstatuslist,
-                                                notcontainsfunctionalitystatus, multifilterfunctionalitystatus, linefilterfunctionalitystatus, filteringlogsfunctionalitystatus, maskinglogsfunctionalitystatus, logalertcreationfunctionalitystatus, logalertgenerationfunctionalitystatus, logalertdeletionfunctionalitystatus, awslogsstatus, azurelogsstatus, gcplogsstatus, fluentdlogsstatus, fluentbitlogsstatus)
+SendReport_to_GooleChat.send_googlechat_message(GOOGLECHAT_WEBHOOK_URL, portal_name, currentdate, TESTCASE1, TESTCASE2, TESTCASE3, TESTCASE4, TESTCASE5, TESTCASE6, TESTCASE7, TESTCASE8, TESTCASE9, TESTCASE10, TESTCASE11, TESTCASE12, TESTCASE13, TESTCASE14, TESTCASE15, TESTCASE16, TESTCASE17, TESTCASE18, TESTCASE19,TESTCASE20, logs_alllabelstatus, logs_labelvaluesnotcoming, appslogsstaus, countlogsstaus, GeneratedLogsCount, Logscomingonportal, hostlogsstatus, logs_queryfilterstatuslist,
+                                                logs_notcontainsfunctionalitystatus, logs_multifilter_functionaltystatus, logs_linefilter_functionalitystatus, filteringlogsfunctionalitystatus, maskinglogsfunctionalitystatus, logalertcreationfunctionalitystatus, logalertgenerationfunctionalitystatus, logalertdeletionfunctionalitystatus, awslogsstatus,awslambdalogsstatus, azurelogsstatus, gcplogsstatus, fluentdlogsstatus, fluentbitlogsstatus)
 
-SendReport_to_Slack.send_slack_message(SLACK_WEBHOOK_URL, portal_name, currentdate, alllabelstatus, labelvaluesnotcoming, appslogsstaus, countlogsstaus, hostlogsstatus, queryfilterstatuslist,
-                                       notcontainsfunctionalitystatus, multifilterfunctionalitystatus, linefilterfunctionalitystatus, filteringlogsfunctionalitystatus, maskinglogsfunctionalitystatus, logalertcreationfunctionalitystatus, logalertgenerationfunctionalitystatus, logalertdeletionfunctionalitystatus, awslogsstatus, azurelogsstatus, gcplogsstatus, fluentdlogsstatus, fluentbitlogsstatus)
+SendReport_to_Slack.send_slack_message(SLACK_WEBHOOK_URL, portal_name, currentdate, logs_alllabelstatus, logs_labelvaluesnotcoming, appslogsstaus, countlogsstaus, hostlogsstatus, logs_queryfilterstatuslist,
+                                       logs_notcontainsfunctionalitystatus, logs_multifilter_functionaltystatus, logs_linefilter_functionalitystatus, filteringlogsfunctionalitystatus, maskinglogsfunctionalitystatus, logalertcreationfunctionalitystatus, logalertgenerationfunctionalitystatus, logalertdeletionfunctionalitystatus, awslogsstatus,awslambdalogsstatus, azurelogsstatus, gcplogsstatus, fluentdlogsstatus, fluentbitlogsstatus)
 
 parsedreportfile['QueryFilter_Functionality'] = []
 parsedreportfile['AllLabelStatus'] = []
