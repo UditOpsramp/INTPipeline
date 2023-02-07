@@ -86,19 +86,19 @@ TestCases.TracingQueryFiltersValidation.TracingQueryFilters(config_and_report_di
                                                             starttimemilisec, endtimemilisec, starttimenanosec, endtimenanosec, parsedreportfile)
 
 tracescomingstatus = parsedreportfile['TracesComingStatus']
-labelvaluesnotcoming = parsedreportfile['LabelValuesNotComing']
+traces_labelvaluesnotcoming = parsedreportfile['Traces_LabelValuesNotComing']
 servicelabelvaluestatus = parsedreportfile['ServiceLabelValueStatus']
 opearationlabelvaluestatus = parsedreportfile['OpearationLabelValueStatus']
 tracingservicenamestatus = parsedreportfile['TracingServiceNameStatus']
 tracingservicedatastatus = parsedreportfile['TracingServiceDataStatus']
 tracingoperationstatus = parsedreportfile['TracingOperationStatus']
 tracingoperationdatastatus = parsedreportfile['TracingOperationDataStatus']
-queryfilter_functionalitylist = parsedreportfile['QueryFilter_FunctionalityList']
+traces_queryfilter_functionalitylist = parsedreportfile['Traces_QueryFilter_FunctionalityList']
 
 GOOGLECHAT_WEBHOOK_URL = traces_googlechat_webhook_url
 
 SendReporttoGoogleChat.send_googlechat_message(GOOGLECHAT_WEBHOOK_URL, portal_name, currentdate, TESTCASE1, TESTCASE2, TESTCASE3,
-                                               TESTCASE4, TESTCASE5, TESTCASE6, TESTCASE7, TESTCASE8, TESTCASE9, tracescomingstatus, labelvaluesnotcoming , servicelabelvaluestatus, opearationlabelvaluestatus, tracingservicenamestatus, tracingservicedatastatus, tracingoperationstatus, tracingoperationdatastatus, queryfilter_functionalitylist)
+                                               TESTCASE4, TESTCASE5, TESTCASE6, TESTCASE7, TESTCASE8, TESTCASE9, tracescomingstatus, traces_labelvaluesnotcoming , servicelabelvaluestatus, opearationlabelvaluestatus, tracingservicenamestatus, tracingservicedatastatus, tracingoperationstatus, tracingoperationdatastatus, traces_queryfilter_functionalitylist)
 
 parsedreportfile['LabelValuesNotComing'] = []
 parsedreportfile['QueryFilter_FunctionalityList'] = []
