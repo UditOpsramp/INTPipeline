@@ -40,6 +40,8 @@ def AWSLambda_Logs(config_and_report_directory, parsedreportfile, AuthToken, aws
         ]
     })
 
+    print(payload)
+    
     headers = {
         'Authorization': AuthToken,
         'Content-Type': 'application/json'
