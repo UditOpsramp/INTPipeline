@@ -2,8 +2,6 @@
 
 import requests
 import yaml
-import json
-
 
 def LabelValues(config_and_report_directory, AuthToken, tenantid, portal,
                 starttimemilisec, endtimemilisec, parsedreportfile):

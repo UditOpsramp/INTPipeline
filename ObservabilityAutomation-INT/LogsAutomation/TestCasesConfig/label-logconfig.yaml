@@ -5,7 +5,7 @@ inputs:
   loglabel:
     type: file
     include:
-    - /home/LogsAutomation/*.log
+    - /home/udit/Documents/INTPipeline/ObservabilityAutomation-INT/LogsAutomation/*.log
     exclude:
     - ''
     regex: ''

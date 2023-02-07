@@ -6,7 +6,7 @@ import calendar
 import datetime
 import GetAuthToken
 import TestCases.TraceComingValidation
-import TracingAutomation.TestCases.TracesLabelvalues
+import TestCases.TracesLabelvalues
 import TestCases.ServiceLabelValueValidation
 import TestCases.OperationLabelValueValidation
 import TestCases.ServiceValidation
@@ -49,7 +49,7 @@ TestCases.TraceComingValidation.TracingData(
     config_and_report_directory, AuthToken, tenantid, portal, starttimenanosec, endtimenanosec, parsedreportfile)
 
 TESTCASE2 = "\n\nTESTCASE-2 : CHECK ALL LABELS-VALUES COMING OR NOT\n"
-TracingAutomation.TestCases.TracesLabelvalues(config_and_report_directory, AuthToken, tenantid, portal,
+TestCases.TracesLabelvalues.LabelValues(config_and_report_directory, AuthToken, tenantid, portal,
                                   starttimemilisec, endtimemilisec, parsedreportfile)
 
 TESTCASE3 = "\n\nTEST CASE-3 : VALIDATION OF SERVICE LABEL ATTRIBUTE VALUE COMING OR NOT \n\n"
