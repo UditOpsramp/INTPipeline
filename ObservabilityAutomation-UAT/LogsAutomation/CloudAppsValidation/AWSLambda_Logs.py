@@ -49,9 +49,8 @@ def AWSLambda_Logs(config_and_report_directory, parsedreportfile, AuthToken, aws
         "POST", awslambdalogsgenerating_url, headers=headers, data=payload)
     print(awslambdagenerating_response.text)
 
-    resourceType = payload['resourceType']
-
-    print(resourceType)
+    getresourcetypevalue = json.loads(payload)
+    resourceTypevalue = getresourcetypevalue['resourceType']
     
     time.sleep(60)
 
@@ -61,7 +60,7 @@ def AWSLambda_Logs(config_and_report_directory, parsedreportfile, AuthToken, aws
         + tenantid +\
         "/logs?query={resourceType="\
         '"'\
-        + resourceType +\
+        + resourceTypevalue +\
         '"'\
         "}&limit=51&start="\
         + str(starttimenanosec) +\

@@ -49,10 +49,9 @@ def AWSLambda_Logs(config_and_report_directory, parsedreportfile, AuthToken, aws
         "POST", awslambdalogsgenerating_url, headers=headers, data=payload)
     print(awslambdagenerating_response.text)
 
-    resourceTypevalue = payload['resourceType']
-
-    print(resourceTypevalue)
-
+    getresourcetypevalue = json.loads(payload)
+    resourceTypevalue = getresourcetypevalue['resourceType']
+    
     time.sleep(60)
 
     logsurl = "https://"\
