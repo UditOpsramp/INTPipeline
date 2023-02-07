@@ -76,7 +76,7 @@ def TracingQueryFilters(config_and_report_directory, AuthToken, tenantid, portal
                                 tracesresultStatus = True
                 if not tracesresultStatus:
                     status = "QueryFilter : " + i + \
-                        " : Validation Fail - Traces are coming for that Queryfilter\n"
+                        " : Validation Fail - Traces are not coming for that Queryfilter\n"
                     Traces_QueryFilter_FunctionalityList.append(status)
                 else:
                     status = "QueryFilter : " + i + \
