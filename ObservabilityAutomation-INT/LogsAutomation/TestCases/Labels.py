@@ -40,6 +40,7 @@ def LabelsTest(config_and_report_directory,workdirectory, parsedreportfile, Auth
     time.sleep(30)
 
     cmd = "sudo go build " + workdirectory + "/loggeneratorscript.go"
+    print(cmd)
     sp.getoutput(cmd)
 
     cmd = "sudo chmod +x " + workdirectory + "/loggeneratorscript"
