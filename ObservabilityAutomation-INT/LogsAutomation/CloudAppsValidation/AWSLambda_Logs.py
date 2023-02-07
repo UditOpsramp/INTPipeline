@@ -39,8 +39,6 @@ def AWSLambda_Logs(config_and_report_directory, parsedreportfile, AuthToken, aws
             }
         ]
     })
-
-    print(payload)
     
     headers = {
         'Authorization': AuthToken,
@@ -51,9 +49,9 @@ def AWSLambda_Logs(config_and_report_directory, parsedreportfile, AuthToken, aws
         "POST", awslambdalogsgenerating_url, headers=headers, data=payload)
     print(awslambdagenerating_response.text)
 
-    resourceType = payload['resourceType']
+    resourceTypevalue = payload['resourceType']
 
-    print(resourceType)
+    print(resourceTypevalue)
 
     time.sleep(60)
 
