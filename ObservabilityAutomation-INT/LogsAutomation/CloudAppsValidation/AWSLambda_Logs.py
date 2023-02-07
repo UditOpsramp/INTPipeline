@@ -61,7 +61,7 @@ def AWSLambda_Logs(config_and_report_directory, parsedreportfile, AuthToken, aws
         + tenantid +\
         "/logs?query={resourceType="\
         '"'\
-        + resourceType +\
+        + resourceTypevalue +\
         '"'\
         "}&limit=51&start="\
         + str(starttimenanosec) +\
