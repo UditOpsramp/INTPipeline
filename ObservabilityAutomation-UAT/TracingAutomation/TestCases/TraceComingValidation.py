@@ -13,7 +13,7 @@ def TracingData(config_and_report_directory, AuthToken, tenantid, portal, startt
     
     time.sleep(30)
 
-    petclinicserverurl = "http://172.25.220.220:8080"
+    petclinicserverurl = "http://localhost:8080"
 
     petclinicresponse = requests.request(
         "GET", petclinicserverurl)

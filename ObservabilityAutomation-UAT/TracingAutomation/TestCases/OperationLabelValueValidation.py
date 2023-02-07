@@ -13,7 +13,7 @@ def OperationLabelValue(config_and_report_directory, AuthToken, tenantid, portal
     
     time.sleep(30)
 
-    petclinicserverurl = "http://172.25.220.220:8080"
+    petclinicserverurl = "http://localhost:8080"
 
     petclinicresponse = requests.request(
         "GET", petclinicserverurl)
@@ -49,5 +49,9 @@ def OperationLabelValue(config_and_report_directory, AuthToken, tenantid, portal
             status = "Validation Pass : Value is Coming for Tracing Operation Label Attribute"
             parsedreportfile['OpearationLabelValueStatus'] = status
 
+    else:
+        status = operation_response.reason
+        parsedreportfile['OpearationLabelValueStatus'] = status
+    
     with open(config_and_report_directory + "/Report.yml", "w") as file:
         yaml.dump(parsedreportfile, file)
