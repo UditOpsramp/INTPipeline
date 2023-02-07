@@ -12,7 +12,7 @@ def ServiceLabelValue(config_and_report_directory, AuthToken, tenantid, portal, 
     
     time.sleep(30)
 
-    petclinicserverurl = "http://172.25.220.220:8080"
+    petclinicserverurl = "http://localhost:8080"
 
     petclinicresponse = requests.request(
         "GET", petclinicserverurl)
@@ -40,12 +40,17 @@ def ServiceLabelValue(config_and_report_directory, AuthToken, tenantid, portal, 
         service_responsejson = service_response.json()
         servicenamelist = service_responsejson['services']
 
-        if not servicenamelist:
-            status = "Validation Fail : Value is not Coming for Tracing Service Label Attribute"
-            parsedreportfile['ServiceLabelValueStatus'] = status
-        else:
-            status = "Validation Pass : Value is Coming for Tracing Service Label Attribute"
-            parsedreportfile['ServiceLabelValueStatus'] = status
+        if servicenamelist:
+            if not servicenamelist:
+                status = "Validation Fail : Value is not Coming for Tracing Service Label Attribute"
+                parsedreportfile['ServiceLabelValueStatus'] = status
+            else:
+                status = "Validation Pass : Value is Coming for Tracing Service Label Attribute"
+                parsedreportfile['ServiceLabelValueStatus'] = status
+    
+    else:
+        status = service_response.reason
+        parsedreportfile['ServiceLabelValueStatus'] = status
 
     with open(config_and_report_directory + "/Report.yml", "w") as file:
         yaml.dump(parsedreportfile, file)

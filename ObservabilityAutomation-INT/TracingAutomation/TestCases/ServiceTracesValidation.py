@@ -14,7 +14,7 @@ def ServiceTracingData(config_and_report_directory, AuthToken, tenantid, portal,
     
     time.sleep(30)
 
-    petclinicserverurl = "http://172.25.220.220:8080"
+    petclinicserverurl = "http://localhost:8080"
 
     petclinicresponse = requests.request(
         "GET", petclinicserverurl)
@@ -45,17 +45,26 @@ def ServiceTracingData(config_and_report_directory, AuthToken, tenantid, portal,
         tracedata_responsejson = tracedata_response.json()
         tracesdatalist = tracedata_responsejson['traces']
 
-        for j in tracesdatalist:
-            tracingservicedata = j['service']
+        if tracesdatalist:
+            for j in tracesdatalist:
+                tracingservicedata = j['service']
 
-        if tracingservicedata == tracingservice:
-            status = "Validation Pass : Traces for Service Name " + \
-                tracingservice + " are Coming"
-            parsedreportfile['TracingServiceDataStatus'] = status
+            if tracingservicedata == tracingservice:
+                status = "Validation Pass : Traces for Service Name " + \
+                    tracingservice + " are Coming"
+                parsedreportfile['TracingServiceDataStatus'] = status
+            else:
+                status = "Validation Fail : Traces for Service Name " + \
+                    tracingservice + " are not Coming"
+                parsedreportfile['TracingServiceDataStatus'] = status
+        
         else:
-            status = "Validation Fail : Traces for Service Name " + \
-                tracingservice + " are not Coming"
+            status = "Validation Fail : Traces are not Coming"      
             parsedreportfile['TracingServiceDataStatus'] = status
-
+            
+    else:
+        status =  tracedata_response.reason      
+        parsedreportfile['TracingServiceDataStatus'] = status  
+          
     with open(config_and_report_directory + "/Report.yml", "w") as file:
         yaml.dump(parsedreportfile, file)
