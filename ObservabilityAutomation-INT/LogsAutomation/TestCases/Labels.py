@@ -6,12 +6,13 @@ import ruamel.yaml
 import time
 import subprocess as sp
 
-def LabelsTest(config_and_report_directory,workdirectory, parsedreportfile, AuthToken, tenantid, portal, starttimeUNIX, endtimeUNIX):
+
+def LabelsTest(config_and_report_directory, workdirectory, parsedreportfile, AuthToken, tenantid, portal, starttimeUNIX, endtimeUNIX):
 
     Logs_AllLabelStatus = parsedreportfile['Logs_AllLabelStatus']
 
     PostingLabels = ["source", "clusterName", "containerName", "eventCategory", "file_name", "file_path", "host", "level", "location", "logGroup", "logName", "logStream",
-                     "messageType", "namespaceName", "operationName", "owner", "podName", "projectId", "resourceId", "resourceType", "subscriptionFilters", "tenantId", "type"]
+                     "messageType", "namespaceName", "operationName", "owner", "podName", "projectId", "resourceId", "resourceType", "subscriptionFilters", "tenantId", "type", "extResourceId"]
 
     with open(workdirectory + "/TestCasesConfig/label-logconfig.yaml", "r") as file:
         labelconfigfile = yaml.load_all(file, Loader=yaml.FullLoader)
@@ -39,7 +40,8 @@ def LabelsTest(config_and_report_directory,workdirectory, parsedreportfile, Auth
 
     time.sleep(30)
 
-    cmd = "sudo go build -o " + workdirectory + "/loggeneratorscript " + workdirectory + "/loggeneratorscript.go"
+    cmd = "sudo go build -o " + workdirectory + \
+        "/loggeneratorscript " + workdirectory + "/loggeneratorscript.go"
     sp.getoutput(cmd)
 
     cmd = "sudo chmod +x " + workdirectory + "/loggeneratorscript"

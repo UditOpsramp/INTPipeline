@@ -72,10 +72,12 @@ def AWSLogs(config_and_report_directory, parsedreportfile, AuthToken, awstoken, 
         logsdata = logsresponsejson['data']
         logsresultdata = logsdata['result']
         if not logsresultdata:
-            status = "App Name : " + 'AWS' + " : Validation Fail - Logs are not coming on portal"
+            status = "Source Name : " + 'AWS' + \
+                " : Validation Fail - Logs are not coming on portal"
             parsedreportfile['AWS_Logs'] = status
         else:
-            status = "App Name : " + "AWS" + " : Validation Pass - Logs are coming on portal"
+            status = "Source Name : " + "AWS" + \
+                " : Validation Pass - Logs are coming on portal"
             parsedreportfile['AWS_Logs'] = status
 
     else:

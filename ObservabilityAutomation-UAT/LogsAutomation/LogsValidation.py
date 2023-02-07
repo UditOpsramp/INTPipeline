@@ -19,6 +19,7 @@ import AlertDefintionValidation.Createalertdef
 import AlertDefintionValidation.GetAlertDetails
 import AlertDefintionValidation.DeleteAlertDefinition
 import CloudAppsValidation.AWS_Logs
+import CloudAppsValidation.AWSLambda_Logs
 import CloudAppsValidation.Azure_Logs
 import CloudAppsValidation.GCP_Logs
 import LogForwardApps.Fluentd_Logs
@@ -26,10 +27,10 @@ import LogForwardApps.Fluentbit_Logs
 import SendReport_to_GooleChat
 import SendReport_to_Slack
 
-config_and_report_directory = os.getcwd() + "/ObservabilityAutomation-UAT"
+config_and_report_directory = os.getcwd() + "/ObservabilityAutomation-INT"
 workdirectory = os.path.dirname(os.path.abspath(__file__))
 
-configfile = open(config_and_report_directory + "/UATAutomationconfig.yml")
+configfile = open(config_and_report_directory + "/INTAutomationconfig.yml")
 parsedconfigfile = yaml.load(configfile, Loader=yaml.FullLoader)
 reportfile = open(config_and_report_directory + "/Report.yml")
 parsedreportfile = yaml.load(reportfile, Loader=yaml.FullLoader)
@@ -59,6 +60,9 @@ AuthToken = GetAuthToken.token
 
 TESTCASE1 = "\nTEST CASE-1 : VALIDATION OF AWS LOGS\n\n"
 CloudAppsValidation.AWS_Logs.AWSLogs(
+    config_and_report_directory, parsedreportfile, AuthToken, awstoken, portal, tenantid, starttimenanosec, endtimenanosec)
+
+CloudAppsValidation.AWSLambda_Logs.AWSLambda_Logs(
     config_and_report_directory, parsedreportfile, AuthToken, awstoken, portal, tenantid, starttimenanosec, endtimenanosec)
 
 TESTCASE2 = "\n\nTEST CASE-2 : VALIDATION OF AZURE LOGS\n\n"

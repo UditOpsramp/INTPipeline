@@ -1,4 +1,5 @@
 AWS_Logs: 'App Name : AWS : Validation Pass - Logs are coming on portal'
+AWSLambda_Logs:
 AZURE_Logs: 'App Name : AZURE : Validation Pass - Logs are coming on portal'
 Logs_AllLabelStatus: []
 Source_Logs : 'App Name : agent : Validation Pass - Logs are coming on portal'

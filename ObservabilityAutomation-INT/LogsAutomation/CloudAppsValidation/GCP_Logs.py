@@ -97,10 +97,12 @@ def GCPLogs(config_and_report_directory, parsedreportfile, AuthToken, gcptoken, 
         logsdata = logsresponsejson['data']
         logsresultdata = logsdata['result']
         if not logsresultdata:
-            status = "App Name : " + 'GCP' + " : Validation Fail - Logs are not coming on portal"
+            status = "Source Name : " + "GCP" + \
+                " : Validation Fail - Logs are not coming on portal"
             parsedreportfile['GCP_Logs'] = status
         else:
-            status = "App Name : " + "GCP" + " : Validation Pass - Logs are coming on portal"
+            status = "Source Name : " + "GCP" + \
+                " : Validation Pass - Logs are coming on portal"
             parsedreportfile['GCP_Logs'] = status
 
     else:

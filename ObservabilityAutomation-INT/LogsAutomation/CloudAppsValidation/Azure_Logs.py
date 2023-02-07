@@ -116,11 +116,12 @@ def AZURELogs(config_and_report_directory, parsedreportfile, AuthToken, azuretok
         logsdata = logsresponsejson['data']
         logsresultdata = logsdata['result']
         if not logsresultdata:
-            status = "App Name : " + 'AZURE' + \
+            status = "Source Name : " + 'AZURE' + \
                 " : Validation Fail - Logs are not coming on portal"
             parsedreportfile['AZURE_Logs'] = status
         else:
-            status = "App Name : " + "AZURE" + " : Validation Pass - Logs are coming on portal"
+            status = "Source Name : " + "AZURE" + \
+                " : Validation Pass - Logs are coming on portal"
             parsedreportfile['AZURE_Logs'] = status
 
     else:
