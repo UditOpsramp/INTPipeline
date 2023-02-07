@@ -5,12 +5,8 @@ import yaml
 import ruamel.yaml
 import time
 import subprocess as sp
-import os
 
 def LabelsTest(config_and_report_directory,workdirectory, parsedreportfile, AuthToken, tenantid, portal, starttimeUNIX, endtimeUNIX):
-    
-    print('Absolute directoryname: ',
-      os.path.dirname(os.path.abspath(__file__)))
 
     Logs_AllLabelStatus = parsedreportfile['Logs_AllLabelStatus']
 

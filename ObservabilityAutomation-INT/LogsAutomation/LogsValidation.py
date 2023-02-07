@@ -26,10 +26,11 @@ import LogForwardApps.Fluentbit_Logs
 import SendReport_to_GooleChat
 import SendReport_to_Slack
 
+print('Absolute directoryname: ',
+      os.path.dirname(os.path.abspath(__file__)))
+
 config_and_report_directory = os.getcwd() + "/ObservabilityAutomation-INT"
-print(config_and_report_directory)
 workdirectory = config_and_report_directory + "/LogsAutomation"
-print(workdirectory)
 
 configfile = open(config_and_report_directory + "/INTAutomationconfig.yml")
 parsedconfigfile = yaml.load(configfile, Loader=yaml.FullLoader)
