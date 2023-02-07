@@ -49,7 +49,9 @@ def AWSLambda_Logs(config_and_report_directory, parsedreportfile, AuthToken, aws
         "POST", awslambdalogsgenerating_url, headers=headers, data=payload)
     print(awslambdagenerating_response.text)
 
-    owner = awslambdapayload_json['owner']
+    resourceType = payload['resourceType']
+
+    print(resourceType)
 
     time.sleep(60)
 
@@ -57,9 +59,9 @@ def AWSLambda_Logs(config_and_report_directory, parsedreportfile, AuthToken, aws
         + portal +\
         "/logsrql/api/v7/tenants/"\
         + tenantid +\
-        "/logs?query={logGroup="\
+        "/logs?query={resourceType="\
         '"'\
-        + owner +\
+        + resourceType +\
         '"'\
         "}&limit=51&start="\
         + str(starttimenanosec) +\
