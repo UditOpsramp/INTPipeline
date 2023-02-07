@@ -9,7 +9,7 @@ generatedlogscountvalue = 0
 logscomingonportal = 0
 
 
-def CountLogs(config_and_report_directory,workdirectory, parsedreportfile, AuthToken, portal, tenantid, starttimeUNIX, endtimeUNIX, parsedconfigfile):
+def CountLogs(config_and_report_directory,workdirectory, parsedreportfile,parsedconfigfile, AuthToken, portal, tenantid, starttimeUNIX, endtimeUNIX):
 
     global generatedlogscountvalue
     global logscomingonportal

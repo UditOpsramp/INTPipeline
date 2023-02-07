@@ -7,7 +7,7 @@ import time
 import subprocess as sp
 
 
-def MaskingLogs(config_and_report_directory,workdirectory, parsedreportfile, AuthToken, tenantid, portal, parsedconfigfile, starttimenanosec, endtimenanosec):
+def MaskingLogs(config_and_report_directory,workdirectory, parsedreportfile,parsedconfigfile, AuthToken, tenantid, portal, starttimenanosec, endtimenanosec):
 
     with open(workdirectory + "/TestCasesConfig/log-masking.yaml", "r") as file:
         maskingconfigfile = yaml.load_all(file, Loader=yaml.FullLoader)
