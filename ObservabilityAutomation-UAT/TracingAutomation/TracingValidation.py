@@ -16,17 +16,16 @@ import TestCases.OperationTracesValidation
 import TestCases.TracingQueryFiltersValidation
 import SendReporttoGoogleChat
 
-config_and_report_directory = os.getcwd()
-workdirectory = os.getcwd() + "TracingAutomation"
+config_and_report_directory = os.getcwd() + "/ObservabilityAutomation-UAT"
 
-configfile = open(workdirectory + "/INTAutomationconfig.yml")
+configfile = open(config_and_report_directory + "/UATAutomationconfig.yml")
 parsedconfigfile = yaml.load(configfile, Loader=yaml.FullLoader)
 reportfile = open(config_and_report_directory + "/Report.yml")
 parsedreportfile = yaml.load(reportfile, Loader=yaml.FullLoader)
 portal = parsedconfigfile["portal_url"]
 tenantid = parsedconfigfile["client_id"]
-clientkey = parsedconfigfile["client_key"]
-clientsecret = parsedconfigfile["client_secret"]
+clientkey = parsedconfigfile["partner_key"]
+clientsecret = parsedconfigfile["partner_secret"]
 tracingoperation = parsedconfigfile["TracingOperation"]
 tracingservice = parsedconfigfile["TracingService"]
 traces_googlechat_webhook_url = parsedconfigfile["TRACES_GOOGLECHAT_WEBHOOK_URL"]

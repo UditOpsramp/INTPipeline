@@ -6,7 +6,6 @@ import ruamel.yaml
 import time
 import subprocess as sp
 
-
 def LabelsTest(config_and_report_directory,workdirectory, parsedreportfile, AuthToken, tenantid, portal, starttimeUNIX, endtimeUNIX):
 
     Logs_AllLabelStatus = parsedreportfile['Logs_AllLabelStatus']
@@ -33,14 +32,14 @@ def LabelsTest(config_and_report_directory,workdirectory, parsedreportfile, Auth
 
     cmd = "sudo cp " + workdirectory + \
         "/TestCasesConfig/label-logconfig.yaml /opt/opsramp/agent/conf/log.d/log-config.yaml"
-    output = sp.getoutput(cmd)
+    sp.getoutput(cmd)
 
     cmd = "sudo systemctl restart opsramp-agent"
     sp.getoutput(cmd)
 
     time.sleep(30)
 
-    cmd = "sudo go build " + workdirectory + "/loggeneratorscript.go"
+    cmd = "sudo go build -o " + workdirectory + "/loggeneratorscript " + workdirectory + "/loggeneratorscript.go"
     sp.getoutput(cmd)
 
     cmd = "sudo chmod +x " + workdirectory + "/loggeneratorscript"

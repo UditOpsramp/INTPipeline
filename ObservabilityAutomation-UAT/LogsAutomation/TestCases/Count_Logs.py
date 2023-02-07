@@ -46,7 +46,7 @@ def CountLogs(config_and_report_directory,workdirectory, parsedreportfile,parsed
 
     time.sleep(30)
 
-    cmd = "sudo go build " + workdirectory + "/loggeneratorscript.go"
+    cmd = "sudo go build -o " + workdirectory + "/loggeneratorscript " + workdirectory + "/loggeneratorscript.go"
     sp.getoutput(cmd)
 
     cmd = "sudo chmod +x " + workdirectory + "/loggeneratorscript"

@@ -6,7 +6,7 @@ TimeToSleep: 0
 client_id: 037deee7-83d1-467b-9cdb-802dc2bad263
 partner_key: jdrh8UepzYZ7UesMKzCNXfcXZ2Z6yJGt
 partner_secret: fhDmG4CJU7Wr27V3EesGh7v7Navq7kb97bctBN4ffCR8AgzdSsaUbdrd6CX3HSmF
-portal_url: int.opsramp.net
+portal_url: uat.opsramp.net
 AWS_TOKEN: rxcn3HgBTx2SAXXunMRSdJCzQY36Gbfq
 AZURE_TOKEN: F3gX8wYpPGhCRpes3PvMNJxXd6dxTQb8
 GCP_TOKEN: bxdhXCAFeHSd57dZaGsTDgk9hqwrnfg6

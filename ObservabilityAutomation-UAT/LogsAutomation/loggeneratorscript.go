@@ -71,7 +71,7 @@ func main() {
 		i := i
 		go func() {
 			defer wg.Done()
-			fileName := fmt.Sprintf("log%d", i)
+			fileName := fmt.Sprintf("ObservabilityAutomation-UAT/LogsAutomation/log%d", i)
 			produceLog(fileName, numberofLogs, logMsgLength, logRotateSizeInMB, timeToSleep)
 		}()
 	}
