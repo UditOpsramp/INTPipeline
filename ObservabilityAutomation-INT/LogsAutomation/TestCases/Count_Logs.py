@@ -122,12 +122,12 @@ def CountLogs(config_and_report_directory,workdirectory, parsedreportfile,parsed
     with open(config_and_report_directory + "/Report.yml", "w") as file:
         yaml.dump(parsedreportfile, file)
 
-    ReomveLogsGenerator()
+    ReomveLogsGenerator(workdirectory)
 
 
-def ReomveLogsGenerator():
-    cmd = "rm -rf loggeneratorscript"
+def ReomveLogsGenerator(workdirectory):
+    cmd = "rm -rf " + workdirectory + "/loggeneratorscript"
     sp.getoutput(cmd)
 
-    cmd = "rm -rf *.log"
+    cmd = "rm -rf " + workdirectory + "/*.log"
     sp.getoutput(cmd)
