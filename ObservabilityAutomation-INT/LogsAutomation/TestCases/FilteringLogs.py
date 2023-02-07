@@ -7,7 +7,7 @@ import json
 import subprocess as sp
 
 
-def FilteringLogs(config_and_report_directory,workdirectory, parsedreportfile, AuthToken, tenantid, portal, starttimenanosec, endtimenanosec, parsedconfigfile):
+def FilteringLogs(config_and_report_directory,workdirectory, parsedreportfile,parsedconfigfile, AuthToken, tenantid, portal, starttimenanosec, endtimenanosec):
 
     with open(workdirectory + "/TestCasesConfig/log-filerting.yaml", "r") as file:
         filteringconfigfile = yaml.load_all(file, Loader=yaml.FullLoader)

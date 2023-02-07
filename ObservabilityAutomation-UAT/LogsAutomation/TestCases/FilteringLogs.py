@@ -1,29 +1,29 @@
 #!/usr/lib/python3
 import requests
-import json
 import yaml
 import ruamel.yaml
 import time
+import json
 import subprocess as sp
 
 
-def MaskingLogs(config_and_report_directory,workdirectory, parsedreportfile,parsedconfigfile, AuthToken, tenantid, portal, starttimenanosec, endtimenanosec):
+def FilteringLogs(config_and_report_directory,workdirectory, parsedreportfile, AuthToken, tenantid, portal, starttimenanosec, endtimenanosec, parsedconfigfile):
 
-    with open(workdirectory + "/TestCasesConfig/log-masking.yaml", "r") as file:
-        maskingconfigfile = yaml.load_all(file, Loader=yaml.FullLoader)
-        maskingconfigfilelist = list(maskingconfigfile)
+    with open(workdirectory + "/TestCasesConfig/log-filerting.yaml", "r") as file:
+        filteringconfigfile = yaml.load_all(file, Loader=yaml.FullLoader)
+        filteringconfigfilelist = list(filteringconfigfile)
 
-    for i in maskingconfigfilelist:
+    for i in filteringconfigfilelist:
         for k, j in i['inputs'].items():
             (j['include'][0]) = workdirectory + "/*.log"
 
     logconfigfile = yaml.safe_dump_all(
-        maskingconfigfilelist, sort_keys=False, explicit_start=True)
+        filteringconfigfilelist, sort_keys=False, explicit_start=True)
 
     yaml_new = ruamel.yaml.YAML(typ='safe')
     data = yaml_new.load(logconfigfile)
 
-    with open(workdirectory + "/TestCasesConfig/log-masking.yaml", "w") as file:
+    with open(workdirectory + "/TestCasesConfig/log-filerting.yaml", "w") as file:
         yaml.dump(data, file, explicit_start=True, sort_keys=False)
 
     NumberofLogs = parsedconfigfile['NumberofLogs']
@@ -33,7 +33,7 @@ def MaskingLogs(config_and_report_directory,workdirectory, parsedreportfile,pars
     TimeToSleep = parsedconfigfile['TimeToSleep']
 
     cmd = "sudo cp " + workdirectory + \
-        "/TestCasesConfig/log-masking.yaml /opt/opsramp/agent/conf/log.d/log-config.yaml"
+        "/TestCasesConfig/log-filerting.yaml /opt/opsramp/agent/conf/log.d/log-config.yaml"
     sp.getoutput(cmd)
 
     cmd = "sudo systemctl restart opsramp-agent"
@@ -47,24 +47,23 @@ def MaskingLogs(config_and_report_directory,workdirectory, parsedreportfile,pars
     cmd = "sudo chmod +x " + workdirectory + "/loggeneratorscript"
     sp.getoutput(cmd)
 
-    cmd = "sudo " + workdirectory + "/./loggeneratorscript" + ' ' + str(NumberofLogs) + ' ' + str(
+    cmd = "sudo " + workdirectory + "/loggeneratorscript" + ' ' + str(NumberofLogs) + ' ' + str(
         NumberofLogFiles) + ' ' + str(LogMsgLength) + ' ' + str(LogRotateSizeInMB) + ' ' + str(TimeToSleep)
     sp.getoutput(cmd)
 
     time.sleep(60)
 
-    global logmessage
-    for i in maskingconfigfilelist:
-
+    for i in filteringconfigfilelist:
         for k, j in i['inputs'].items():
             app = (k)
-            maskingmessage = (j['masking'][0]['placeholder'])
+            filteringvalue = (j['filters'][0]['include'])
+            filtervalue = filteringvalue.capitalize()
 
-            maskinglogsurl = "https://"\
+            filteringlogsurl = "https://"\
                 + portal +\
                 "/logsrql/api/v7/tenants/"\
                 + tenantid +\
-                "/logs?query={source="\
+                "/logs?query={source={"\
                 '"'\
                 + app +\
                 '"'\
@@ -79,28 +78,30 @@ def MaskingLogs(config_and_report_directory,workdirectory, parsedreportfile,pars
                 'Content-Type': 'application/json'
             }
 
-        masking_response = requests.request(
-            "GET", maskinglogsurl, headers=headers, data=payload)
-        if masking_response.status_code == 200:
-            maskingresponsejson = masking_response.json()
-            maskingdata = maskingresponsejson['data']
-            maskingresultdata = maskingdata['result']
-            for p in maskingresultdata:
+        filtering_response = requests.request(
+            "GET", filteringlogsurl, headers=headers, data=payload)
+        if filtering_response.status_code == 200:
+            filteringresponsejson = filtering_response.json()
+            data = filteringresponsejson['data']
+            resultdata = data['result']
+            for p in resultdata:
                 val = (p['values'])
                 for k in val:
                     message = json.loads(k[1])
-                logmessage = message['message']
+                msglevel = message['level']
 
-            if logmessage == maskingmessage:
-                status = "Validation Pass - Masking Logs Functionality is Working Properly"
-                parsedreportfile['MaskingLogs_Functionality'] = status
+            loglevel = msglevel
+
+            if loglevel == filtervalue:
+                status = "Validation Pass - Filtering Logs Functionality is Working Properly"
+                parsedreportfile['FilteringLogs_Functionality'] = status
             else:
-                status = "Validation Fail - Masking Logs Functionality is not Working Properly"
-                parsedreportfile['MaskingLogs_Functionality'] = status
+                status = "Validation Fail - Filtering Logs Functionality is not Working Properly"
+                parsedreportfile['FilteringLogs_Functionality'] = status
 
         else:
-            status = masking_response.reason
-            parsedreportfile['MaskingLogs_Functionality'] = status
+            status = filtering_response.reason
+            parsedreportfile['FilteringLogs_Functionality'] = status
 
     with open(config_and_report_directory + "/Report.yml", "w") as file:
         yaml.dump(parsedreportfile, file)

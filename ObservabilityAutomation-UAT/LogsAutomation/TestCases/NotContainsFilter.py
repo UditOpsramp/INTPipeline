@@ -5,7 +5,7 @@ import time
 import subprocess as sp
 
 
-def QueryNotContainsLogs(config_and_report_directory,workdirectory, parsedreportfile,parsedconfigfile, AuthToken, portal, tenantid, starttimenanosec, endtimenanosec):
+def QueryNotContainsLogs(config_and_report_directory,workdirectory, parsedreportfile, AuthToken, portal, tenantid, starttimenanosec, endtimenanosec, parsedconfigfile):
 
     NumberofLogs = parsedconfigfile['NumberofLogs']
     NumberofLogFiles = parsedconfigfile['NumberofLogFiles']
