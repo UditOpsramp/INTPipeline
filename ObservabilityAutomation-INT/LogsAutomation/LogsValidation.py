@@ -28,7 +28,7 @@ import SendReport_to_Slack
 
 config_and_report_directory = os.getcwd() + "/ObservabilityAutomation-INT"
 workdirectory = os.path.dirname(os.path.abspath(__file__))
-print()
+print(workdirectory)
 
 configfile = open(config_and_report_directory + "/INTAutomationconfig.yml")
 parsedconfigfile = yaml.load(configfile, Loader=yaml.FullLoader)
