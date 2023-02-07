@@ -26,7 +26,8 @@ import LogForwardApps.Fluentbit_Logs
 import SendReport_to_GooleChat
 import SendReport_to_Slack
 
-config_and_report_directory = os.getcwd() + "/ObservabilityAutomation-INT"
+config_and_report_directory = os.path.dirname("ObservabilityAutomation-INT")
+print(config_and_report_directory)
 workdirectory = os.path.dirname(os.path.abspath(__file__))
 print(workdirectory)
 
