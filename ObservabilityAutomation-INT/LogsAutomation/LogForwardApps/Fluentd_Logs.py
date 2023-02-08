@@ -11,10 +11,12 @@ def FluentDLogs(config_and_report_directory, parsedreportfile, AuthToken, portal
     cmd = "sudo systemctl restart td-agent"
     sp.getoutput(cmd)
 
+    time.sleep(30)
+
     cmd = "sudo systemctl restart opsramp-agent"
     sp.getoutput(cmd)
 
-    time.sleep(120)
+    time.sleep(60)
 
     payload = {}
 
