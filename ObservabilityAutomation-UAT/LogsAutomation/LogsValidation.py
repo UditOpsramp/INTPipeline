@@ -62,7 +62,7 @@ TESTCASE1 = "\nTEST CASE-1 : VALIDATION OF AWS LOGS\n\n"
 CloudAppsValidation.AWS_Logs.AWSLogs(
     config_and_report_directory, parsedreportfile, AuthToken, awstoken, portal, tenantid, starttimenanosec, endtimenanosec)
 
-TESTCASE2 = "\nTEST CASE-2 : VALIDATION OF AWS LOGS\n\n"
+TESTCASE2 = "\n\nTEST CASE-2 : VALIDATION OF AWS LAMBDA LOGS\n\n"
 CloudAppsValidation.AWSLambda_Logs.AWSLambda_Logs(
     config_and_report_directory, parsedreportfile, AuthToken, awstoken, portal, tenantid, starttimenanosec, endtimenanosec)
 
