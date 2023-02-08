@@ -12,7 +12,7 @@ AZURE_TOKEN: NwhPJCAPSHXJ6T2bKj3UUAr2RqBMR3WD
 GCP_TOKEN: eDRpXty6jKjzZKdCMtNknU8XGDXgWdhC
 AWS_BUCKETNAME : logs-validation
 LOGS_GOOGLECHAT_WEBHOOK_URL: https://chat.googleapis.com/v1/spaces/AAAAV4jeHC8/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=tp_r--y2kXuf9VkUSCd3m4hhBmYHTVCUGMr6gJ4wmkU%3D
-TRACES_GOOGLECHAT_WEBHOOK_URL: https://chat.googleapis.com/v1/spaces/AAAAV4jeHC8/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=tp_r--y2kXuf9VkUSCd3m4hhBmYHTVCUGMr6gJ4wmkU%3D
+TRACES_GOOGLECHAT_WEBHOOK_URL: https://chat.googleapis.com/v1/spaces/AAAASY0N78I/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=L34fEsEil_k1Y7cIjBvVfcCNfvDD3VUXS1aU0KCdf9g%3D
 SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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 
 Portal_Name: INT
 TracingService: PetClinicSampleApp
