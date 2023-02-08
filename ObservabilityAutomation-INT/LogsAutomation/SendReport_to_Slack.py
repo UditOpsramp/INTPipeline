@@ -5,7 +5,7 @@ import json
 
 
 def send_slack_message(SLACK_WEBHOOK_URL, portal_name, currentdate,logs_alllabelstatus,logs_labelvaluesnotcoming, appslogsstaus, countlogsstaus, hostlogsstatus, logs_queryfilterstatuslist,
-                       logs_notcontainsfunctionalitystatus, logs_multifilter_functionaltystatus, logs_linefilter_functionalitystatus, filteringlogsfunctionalitystatus, maskinglogsfunctionalitystatus, logalertcreationfunctionalitystatus, logalertgenerationfunctionalitystatus, logalertdeletionfunctionalitystatus, awslogsstatus, azurelogsstatus, gcplogsstatus, fluentdlogsstatus, fluentbitlogsstatus):
+                       logs_notcontainsfunctionalitystatus, logs_multifilter_functionaltystatus, logs_linefilter_functionalitystatus, filteringlogsfunctionalitystatus, maskinglogsfunctionalitystatus, logalertcreationfunctionalitystatus, logalertgenerationfunctionalitystatus, logalertdeletionfunctionalitystatus, awslogsstatus,awslambdalogsstatus, azurelogsstatus, gcplogsstatus, fluentdlogsstatus, fluentbitlogsstatus):
 
     FailTestCase_color = ""
     PassTestCase_color = ""
@@ -14,7 +14,7 @@ def send_slack_message(SLACK_WEBHOOK_URL, portal_name, currentdate,logs_alllabel
     failedtestcase = ""
     passtestcase = ""
 
-    for i in [appslogsstaus, countlogsstaus, hostlogsstatus, logs_notcontainsfunctionalitystatus, logs_multifilter_functionaltystatus, logs_linefilter_functionalitystatus, filteringlogsfunctionalitystatus, maskinglogsfunctionalitystatus, awslogsstatus, azurelogsstatus, gcplogsstatus, fluentdlogsstatus, fluentbitlogsstatus, logalertcreationfunctionalitystatus, logalertgenerationfunctionalitystatus, logalertdeletionfunctionalitystatus]:
+    for i in [appslogsstaus, countlogsstaus, hostlogsstatus, logs_notcontainsfunctionalitystatus, logs_multifilter_functionaltystatus, logs_linefilter_functionalitystatus, filteringlogsfunctionalitystatus, maskinglogsfunctionalitystatus, awslogsstatus,awslambdalogsstatus, azurelogsstatus, gcplogsstatus, fluentdlogsstatus, fluentbitlogsstatus, logalertcreationfunctionalitystatus, logalertgenerationfunctionalitystatus, logalertdeletionfunctionalitystatus]:
         if "Fail" in i:
             FailTestCaseList.append(i)
             FailTestCase_color = "#D70000"
