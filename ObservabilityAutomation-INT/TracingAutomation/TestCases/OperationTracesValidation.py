@@ -14,7 +14,7 @@ def OperationTracingData(config_and_report_directory, AuthToken, tenantid, porta
     
     time.sleep(30)
 
-    petclinicserverurl = "http://localhost:8080" + tracingoperation
+    petclinicserverurl = "http://localhost:8082" + tracingoperation
 
     petclinicresponse = requests.request(
         "GET", petclinicserverurl)
