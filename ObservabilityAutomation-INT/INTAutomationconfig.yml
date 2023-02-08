@@ -5,11 +5,11 @@ NumberofLogs: 100000
 TimeToSleep: 0
 client_id: 23394562-9770-4e09-91aa-866c69d783d1
 partner_key: jdrh8UepzYZ7UesMKzCNXfcXZ2Z6yJGt
-partner_secret: fhDmG4CJU7Wr27V3EesGh7v7Navq7kb97bctBN4ffCR8AgzdSsaUbdrd6CX3HSmF
+partner_secret: x92qVwN33H9FBxd6AQF5QrRHMrfEEajMxxNsGytDDZRxqBccavuS2SN2p348NrwD
 portal_url: int.opsramp.net
-AWS_TOKEN: rxcn3HgBTx2SAXXunMRSdJCzQY36Gbfq
-AZURE_TOKEN: F3gX8wYpPGhCRpes3PvMNJxXd6dxTQb8
-GCP_TOKEN: bxdhXCAFeHSd57dZaGsTDgk9hqwrnfg6
+AWS_TOKEN: z3yHmKaa7Mfk3RvT7ZkvtWsZ9mGWfcgT
+AZURE_TOKEN: NwhPJCAPSHXJ6T2bKj3UUAr2RqBMR3WD
+GCP_TOKEN: eDRpXty6jKjzZKdCMtNknU8XGDXgWdhC
 AWS_BUCKETNAME : logs-validation
 LOGS_GOOGLECHAT_WEBHOOK_URL: https://chat.googleapis.com/v1/spaces/AAAAV4jeHC8/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=tp_r--y2kXuf9VkUSCd3m4hhBmYHTVCUGMr6gJ4wmkU%3D
 TRACES_GOOGLECHAT_WEBHOOK_URL: https://chat.googleapis.com/v1/spaces/AAAASkbKjyE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=x1rUpPmWjpbNRqzbWAr1oYc7dFJhpJ2p2Wa9nXDhJSM%3D
