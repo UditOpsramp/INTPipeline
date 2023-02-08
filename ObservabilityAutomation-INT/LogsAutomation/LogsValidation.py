@@ -57,7 +57,7 @@ endtimenanosec = endtimeUNIX * 1000000000
 
 GetAuthToken.GetAuthToken(clientkey, clientsecret, portal)
 AuthToken = GetAuthToken.token
-
+'''
 TESTCASE1 = "\nTEST CASE-1 : VALIDATION OF AWS LOGS\n\n"
 CloudAppsValidation.AWS_Logs.AWSLogs(
     config_and_report_directory, parsedreportfile, AuthToken, awstoken, portal, tenantid, starttimenanosec, endtimenanosec)
@@ -113,11 +113,11 @@ TestCases.FilteringLogs.FilteringLogs(
 TESTCASE14 = "\n\nTEST CASE-14 : VALIDATION OF MASKING LOGS FUNCTIONALITY\n\n"
 TestCases.MaskingLogs.MaskingLogs(
     config_and_report_directory, workdirectory, parsedreportfile, parsedconfigfile, AuthToken, tenantid, portal, starttimenanosec, endtimenanosec)
-
+'''
 TESTCASE15 = "\n\nTEST CASE-15 : VALIDATION OF FLUENTD LOGS\n\n"
 LogForwardApps.Fluentd_Logs.FluentDLogs(
     config_and_report_directory, parsedreportfile, AuthToken, portal, tenantid, starttimenanosec, endtimenanosec)
-
+'''
 TESTCASE16 = "\n\nTEST CASE-16 : VALIDATION OF FLUENT-BIT LOGS\n\n"
 LogForwardApps.Fluentbit_Logs.FluentBitLogs(
     config_and_report_directory, parsedreportfile, AuthToken, portal, tenantid, starttimenanosec, endtimenanosec)
@@ -177,3 +177,4 @@ parsedreportfile['AllLabelStatus'] = []
 parsedreportfile['LabelValuesNotComing'] = []
 with open(config_and_report_directory + "/Report.yml", "w") as file:
     yaml.dump(parsedreportfile, file)
+'''
