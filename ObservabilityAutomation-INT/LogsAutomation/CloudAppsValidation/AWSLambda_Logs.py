@@ -39,7 +39,7 @@ def AWSLambda_Logs(config_and_report_directory, parsedreportfile, AuthToken, aws
             }
         ]
     })
-    
+
     headers = {
         'Authorization': AuthToken,
         'Content-Type': 'application/json'
@@ -51,7 +51,7 @@ def AWSLambda_Logs(config_and_report_directory, parsedreportfile, AuthToken, aws
 
     getresourcetypevalue = json.loads(payload)
     resourceTypevalue = getresourcetypevalue['resourceType']
-    
+
     time.sleep(60)
 
     logsurl = "https://"\

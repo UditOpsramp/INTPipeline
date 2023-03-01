@@ -16,7 +16,7 @@ def FluentBitLogs(config_and_report_directory, parsedreportfile, AuthToken, port
     cmd = "sudo systemctl restart opsramp-agent"
     sp.getoutput(cmd)
 
-    time.sleep(180)
+    time.sleep(60)
 
     payload = {}
 

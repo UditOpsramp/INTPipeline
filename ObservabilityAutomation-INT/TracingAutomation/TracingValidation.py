@@ -36,7 +36,7 @@ currenttime = datetime.datetime.utcnow()
 starttimeUNIX = calendar.timegm(currenttime.timetuple())
 starttimemilisec = starttimeUNIX * 1000
 starttimenanosec = starttimeUNIX * 1000000000
-endtime = datetime.datetime.utcnow() + datetime.timedelta(minutes=30)
+endtime = datetime.datetime.utcnow() + datetime.timedelta(minutes=15)
 endtimeUNIX = calendar.timegm(endtime.timetuple())
 endtimemilisec = endtimeUNIX * 1000
 endtimenanosec = endtimeUNIX * 1000000000

@@ -1,34 +1,40 @@
-AWS_Logs: 'App Name : AWS : Validation Pass - Logs are coming on portal'
-AWSLambda_Logs:
-AZURE_Logs: 'App Name : AZURE : Validation Pass - Logs are coming on portal'
-Logs_AllLabelStatus: []
-Source_Logs : 'App Name : agent : Validation Pass - Logs are coming on portal'
+AWSLambda_Logs: 'Source Name : AWS LAMBDA : Validation Pass - Logs are coming on portal'
+AWS_Logs: 'Source Name : AWS : Validation Pass - Logs are coming on portal'
+AZURE_Logs: 'Source Name : AZURE : Validation Pass - Logs are coming on portal'
 Count_Logs: Validation Pass - All Logs are coming on portal
 FilteringLogs_Functionality: Validation Pass - Filtering Logs Functionality is Working
   Properly
 FluentBit_Logs: 'App Name : Fluent-bit : Validation Pass - Logs are coming on portal'
 FluentD_Logs: 'App Name : FluentD : Validation Pass - Logs are coming on portal'
-GCP_Logs: 'App Name : GCP : Validation Pass - Logs are coming on portal'
+GCP_Logs: 'Source Name : GCP : Validation Pass - Logs are coming on portal'
 Host_Logs: 'Host : cluster-node-02 : Validation Pass - Logs are coming for that host'
-Logs_LabelValuesNotComing: []
-Logs_LineFilter_Functionality: Validation Pass - Line Filter Functionality is Working Properly
 LogAlertCreation: Validation Pass - Log Alert Definiton Created Successfully
 LogAlertDeletion: Validation Pass - Log Alert Definiton Deleted Successfully
 LogAlertGeneration: Validation Pass - Alert Generated Successfully
-MaskingLogs_Functionality: Validation Pass - Masking Logs Functionality is Working
+LogAlertCreation_GroupBy: Validation Pass - Log Alert Definiton with GroupBY Created
+  Successfully
+LogAlertGeneration_GroupBy: Validation Pass - Alert is Successfully Mapped with Resource
+LogAlertDeletion_GroupBy: Validation Pass - Log Alert Definiton with GroupBY Deleted
+  Successfully
+Logs_AllLabelStatus: []
+Logs_LabelValuesNotComing: []
+Logs_LineFilter_Functionality: Validation Pass - Line Filter Functionality is Working
   Properly
 Logs_MultiFilter_Functionalty: Validation Pass - MultiFilter Functionality is  Working
   Properly
 Logs_NotContains_Functionality: Validation Pass - Not Contains Query Filter Functionality
   is Working Properly
 Logs_QueryFilter_Functionality: []
-Traces_LabelValuesNotComing: []
+MaskingLogs_Functionality: Validation Pass - Masking Logs Functionality is Working
+  Properly
 OpearationLabelValueStatus: 'Validation Pass : Value is Coming for Tracing Operation
   Label Attribute'
-Traces_QueryFilter_FunctionalityList: []
 ServiceLabelValueStatus: 'Validation Pass : Value is Coming for Tracing Service Label
   Attribute'
+Source_Logs: 'App Name : agent : Validation Pass - Logs are coming on portal'
 TracesComingStatus: 'Validation Pass : Traces are Coming'
+Traces_LabelValuesNotComing: []
+Traces_QueryFilter_FunctionalityList: []
 TracingOperationDataStatus: 'Validation Pass : Traces for Operation Name /vets.html
   are Coming'
 TracingOperationStatus: 'Validation Pass : Tracing Operation /vets.html is Coming'

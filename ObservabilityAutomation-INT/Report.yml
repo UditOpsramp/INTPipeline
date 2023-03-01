@@ -11,6 +11,11 @@ Host_Logs: 'Host : cluster-node-02 : Validation Pass - Logs are coming for that 
 LogAlertCreation: Validation Pass - Log Alert Definiton Created Successfully
 LogAlertDeletion: Validation Pass - Log Alert Definiton Deleted Successfully
 LogAlertGeneration: Validation Pass - Alert Generated Successfully
+LogAlertCreation_GroupBy: Validation Pass - Log Alert Definiton with GroupBY Created
+  Successfully
+LogAlertGeneration_GroupBy: Validation Pass - Alert is Successfully Mapped with Resource
+LogAlertDeletion_GroupBy: Validation Pass - Log Alert Definiton with GroupBY Deleted
+  Successfully
 Logs_AllLabelStatus: []
 Logs_LabelValuesNotComing: []
 Logs_LineFilter_Functionality: Validation Pass - Line Filter Functionality is Working

@@ -9,6 +9,9 @@ import subprocess as sp
 
 def FilteringLogs(config_and_report_directory,workdirectory, parsedreportfile,parsedconfigfile, AuthToken, tenantid, portal, starttimenanosec, endtimenanosec):
 
+    global msglevel
+    global loglevel
+    
     with open(workdirectory + "/TestCasesConfig/log-filerting.yaml", "r") as file:
         filteringconfigfile = yaml.load_all(file, Loader=yaml.FullLoader)
         filteringconfigfilelist = list(filteringconfigfile)
@@ -84,21 +87,26 @@ def FilteringLogs(config_and_report_directory,workdirectory, parsedreportfile,pa
             filteringresponsejson = filtering_response.json()
             data = filteringresponsejson['data']
             resultdata = data['result']
-            for p in resultdata:
-                val = (p['values'])
-                for k in val:
-                    message = json.loads(k[1])
-                msglevel = message['level']
+            if resultdata :
+                for p in resultdata:
+                    val = (p['values'])
+                    for k in val:
+                        message = json.loads(k[1])
+                    msglevel = message['level']
 
-            loglevel = msglevel
+                loglevel = msglevel
 
-            if loglevel == filtervalue:
-                status = "Validation Pass - Filtering Logs Functionality is Working Properly"
+                if loglevel == filtervalue:
+                    status = "Validation Pass - Filtering Logs Functionality is Working Properly"
+                    parsedreportfile['FilteringLogs_Functionality'] = status
+                else:
+                    status = "Validation Fail - Filtering Logs Functionality is not Working Properly"
+                    parsedreportfile['FilteringLogs_Functionality'] = status
+
+            else :
+                status = "Validation Fail - Logs are not coming to validate the Filtering Functionality"
                 parsedreportfile['FilteringLogs_Functionality'] = status
-            else:
-                status = "Validation Fail - Filtering Logs Functionality is not Working Properly"
-                parsedreportfile['FilteringLogs_Functionality'] = status
-
+                
         else:
             status = filtering_response.reason
             parsedreportfile['FilteringLogs_Functionality'] = status

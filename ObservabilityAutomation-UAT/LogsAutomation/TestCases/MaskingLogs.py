@@ -9,6 +9,8 @@ import subprocess as sp
 
 def MaskingLogs(config_and_report_directory,workdirectory, parsedreportfile,parsedconfigfile, AuthToken, tenantid, portal, starttimenanosec, endtimenanosec):
 
+    global logmessage
+
     with open(workdirectory + "/TestCasesConfig/log-masking.yaml", "r") as file:
         maskingconfigfile = yaml.load_all(file, Loader=yaml.FullLoader)
         maskingconfigfilelist = list(maskingconfigfile)
@@ -53,7 +55,6 @@ def MaskingLogs(config_and_report_directory,workdirectory, parsedreportfile,pars
 
     time.sleep(60)
 
-    global logmessage
     for i in maskingconfigfilelist:
 
         for k, j in i['inputs'].items():
@@ -85,19 +86,25 @@ def MaskingLogs(config_and_report_directory,workdirectory, parsedreportfile,pars
             maskingresponsejson = masking_response.json()
             maskingdata = maskingresponsejson['data']
             maskingresultdata = maskingdata['result']
-            for p in maskingresultdata:
-                val = (p['values'])
-                for k in val:
-                    message = json.loads(k[1])
-                logmessage = message['message']
+            
+            if maskingresultdata:
+                for p in maskingresultdata:
+                    val = (p['values'])
+                    for k in val:
+                        message = json.loads(k[1])
+                    logmessage = message['message']
 
-            if logmessage == maskingmessage:
-                status = "Validation Pass - Masking Logs Functionality is Working Properly"
+                if logmessage == maskingmessage:
+                    status = "Validation Pass - Masking Logs Functionality is Working Properly"
+                    parsedreportfile['MaskingLogs_Functionality'] = status
+                else:
+                    status = "Validation Fail - Masking Logs Functionality is not Working Properly"
+                    parsedreportfile['MaskingLogs_Functionality'] = status
+            
+            else :
+                status = "Validation Fail - Logs are not coming to validate the Masking Functionality"
                 parsedreportfile['MaskingLogs_Functionality'] = status
-            else:
-                status = "Validation Fail - Masking Logs Functionality is not Working Properly"
-                parsedreportfile['MaskingLogs_Functionality'] = status
-
+                
         else:
             status = masking_response.reason
             parsedreportfile['MaskingLogs_Functionality'] = status

@@ -22,23 +22,24 @@ def HostLogs(config_and_report_directory, parsedreportfile, AuthToken, tenantid,
 
     value_response = requests.request(
         "GET", valueurl, headers=headers, data=payload)
-    valuesresponsejson = value_response.json()
-    valuesdata = valuesresponsejson['data']
+    if value_response.status_code == 200:
+        valuesresponsejson = value_response.json()
+        valuesdata = valuesresponsejson['data']
 
-    for i in valuesdata:
+        for i in valuesdata:
 
-        logsurl = "https://"\
-            + portal +\
-            "/logsrql/api/v7/tenants/"\
-            + tenantid +\
-            "/logs?query={host="\
-            '"'\
-            + i +\
-            '"'\
-            "}&limit=51&start="\
-            + str(starttimenanosec) +\
-            "&end="\
-            + str(endtimenanosec)
+            logsurl = "https://"\
+                + portal +\
+                "/logsrql/api/v7/tenants/"\
+                + tenantid +\
+                "/logs?query={host="\
+                '"'\
+                + i +\
+                '"'\
+                "}&limit=51&start="\
+                + str(starttimenanosec) +\
+                "&end="\
+                + str(endtimenanosec)
 
         log_response = requests.request(
             "GET", logsurl, headers=headers, data=payload)
@@ -56,6 +57,11 @@ def HostLogs(config_and_report_directory, parsedreportfile, AuthToken, tenantid,
         else:
             status = log_response.reason
             parsedreportfile['Host_Logs'] = status
+    
+    else :
+        status = value_response.reason
+        parsedreportfile['Host_Logs'] = status
+               
 
     with open(config_and_report_directory + "/Report.yml", "w") as file:
         yaml.dump(parsedreportfile, file)

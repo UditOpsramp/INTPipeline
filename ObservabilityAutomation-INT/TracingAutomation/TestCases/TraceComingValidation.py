@@ -6,17 +6,27 @@ import json
 import time
 import subprocess as sp
 
+
 def TracingData(config_and_report_directory, AuthToken, tenantid, portal, starttimenanosec, endtimenanosec, parsedreportfile):
 
-    cmd= "sudo systemctl restart opsramp-agent"
+    cmd = "sudo systemctl restart opsramp-agent"
     sp.getoutput(cmd)
-    
-    time.sleep(30)
 
-    petclinicserverurl = "http://localhost:8082"
+    time.sleep(60)
 
-    petclinicresponse = requests.request(
-        "GET", petclinicserverurl)
+    petclinicserverurl = "http://localhost:8082/owners/new"
+
+    petclinicpayload = {'firstName': 'opsramp',
+                        'lastName': 'opsramp',
+                        'address': 'Hyd',
+                        'city': 'Hyd',
+                        'telephone': '123456'}
+
+    files = []
+    headers = {}
+
+    petclinicresponse = response = requests.request(
+        "POST", petclinicserverurl, headers=headers, data=petclinicpayload, files=files)
 
     time.sleep(60)
 
@@ -50,6 +60,10 @@ def TracingData(config_and_report_directory, AuthToken, tenantid, portal, startt
         else:
             status = "Validation Pass : Traces are Coming"
             parsedreportfile['TracesComingStatus'] = status
+
+    else:
+        status = tracedata_response.reason
+        parsedreportfile['TracesComingStatus'] = status
 
     with open(config_and_report_directory + "/Report.yml", "w") as file:
         yaml.dump(parsedreportfile, file)

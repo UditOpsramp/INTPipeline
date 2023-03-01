@@ -6,6 +6,9 @@ import yaml
 
 def CreateLogAlertDefinition(config_and_report_directory,workdirectory, parsedreportfile, AuthToken, portal, tenantid):
 
+    alertidfile = open(workdirectory + "/AlertDefintionValidation/alertinfo.yml")
+    parsedalertfile = yaml.load(alertidfile, Loader=yaml.FullLoader)
+
     createurl = "https://"\
         + portal +\
         "/log-alert/api/v1/alerts/tenants/"\
@@ -47,15 +50,16 @@ def CreateLogAlertDefinition(config_and_report_directory,workdirectory, parsedre
     if response.status_code == 200:
         status = "Validation Pass - Log Alert Definiton Created Successfully"
         parsedreportfile['LogAlertCreation'] = status
+        jsonreponse = response.json()
+        alertid = jsonreponse['alert']['alertId']
+        parsedalertfile['AlertComponent'] = alertid  
     else:
-        status = "Validation Fail - Log Alert Defintion Not Created Successfully"
+        status = "Validation Fail - Log Alert Defintion Not Created Successfully " + response.reason
         parsedreportfile['LogAlertCreation'] = status
-    jsonreponse = response.json()
-
-    alertid = jsonreponse['alert']['alertId']
-
+        
+    with open(workdirectory + "/AlertDefintionValidation/alertinfo.yml", "w") as file:
+        yaml.dump(parsedalertfile, file)    
+        
     with open(config_and_report_directory + "/Report.yml", "w") as file:
         yaml.dump(parsedreportfile, file)
 
-    with open(workdirectory + "/AlertDefintionValidation/alertinfo.yml", "w") as file:
-        file.write("AlertComponent" + ': ' + alertid + "\n")

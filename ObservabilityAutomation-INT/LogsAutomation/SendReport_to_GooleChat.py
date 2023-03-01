@@ -3,9 +3,9 @@
 import requests
 
 
-def send_googlechat_message(GOOGLECHAT_WEBHOOK_URL, portal_name, currentdate, TESTCASE1, TESTCASE2, TESTCASE3, TESTCASE4, TESTCASE5, TESTCASE6, TESTCASE7, TESTCASE8, TESTCASE9, TESTCASE10, TESTCASE11, TESTCASE12, TESTCASE13, TESTCASE14, TESTCASE15, TESTCASE16, TESTCASE17, TESTCASE18, TESTCASE19,TESTCASE20, logs_alllabelstatus,logs_labelvaluesnotcoming, appslogsstaus, countlogsstaus, GeneratedLogsCount, Logscomingonportal, hostlogsstatus, logs_queryfilterstatuslist,
-                                              logs_notcontainsfunctionalitystatus, logs_multifilter_functionaltystatus, logs_linefilter_functionalitystatus, filteringlogsfunctionalitystatus, maskinglogsfunctionalitystatus, logalertcreationfunctionalitystatus, logalertgenerationfunctionalitystatus, logalertdeletionfunctionalitystatus, awslogsstatus,awslambdalogsstatus, azurelogsstatus, gcplogsstatus, fluentdlogsstatus, fluentbitlogsstatus):
-    
+def send_googlechat_message(GOOGLECHAT_WEBHOOK_URL, portal_name, currentdate, TESTCASE1, TESTCASE2, TESTCASE3, TESTCASE4, TESTCASE5, TESTCASE6, TESTCASE7, TESTCASE8, TESTCASE9, TESTCASE10, TESTCASE11, TESTCASE12, TESTCASE13, TESTCASE14, TESTCASE15, TESTCASE16, TESTCASE17, TESTCASE18, TESTCASE19, TESTCASE20, TESTCASE21, TESTCASE22, TESTCASE23, logs_alllabelstatus, logs_labelvaluesnotcoming, appslogsstaus, countlogsstaus, GeneratedLogsCount, Logscomingonportal, hostlogsstatus, logs_queryfilterstatuslist,
+                            logs_notcontainsfunctionalitystatus, logs_multifilter_functionaltystatus, logs_linefilter_functionalitystatus, filteringlogsfunctionalitystatus, maskinglogsfunctionalitystatus, logalertcreationfunctionalitystatus, logalertgenerationfunctionalitystatus, logalertdeletionfunctionalitystatus, logalertcreationgroupbyfunctionalitystatus, logalertgenerationgroupbyfunctionalitystatus, logalertdeletiongroupbyfunctionalitystatus, awslogsstatus, awslambdalogsstatus, azurelogsstatus, gcplogsstatus, fluentdlogsstatus, fluentbitlogsstatus):
+
     if "Pass" in awslogsstatus:
         test1status = '<b><font color=\"#5AAF00\">' + awslogsstatus + '</font></b>'
     else:
@@ -25,29 +25,29 @@ def send_googlechat_message(GOOGLECHAT_WEBHOOK_URL, portal_name, currentdate, TE
         test4status = '<b><font color=\"#5AAF00\">' + gcplogsstatus + '</font></b>'
     else:
         test4status = '<b><font color=\"#D70000\">' + gcplogsstatus + '</font></b>'
-        
+
     test5status = ''
-    for i in logs_alllabelstatus : 
+    for i in logs_alllabelstatus:
         if "Not" in i:
             labelstatus = '<b><font color=\"#D70000\">' + \
-            i + '</font></b>'
+                i + '</font></b>'
             test5status = test5status + "\n" + labelstatus
         else:
             labelstatus = '<b><font color=\"#5AAF00\">' + \
-            i + '</font></b>'
+                i + '</font></b>'
             test5status = test5status + "\n" + labelstatus
-            
+
     test6status = ''
-    for j in logs_labelvaluesnotcoming : 
+    for j in logs_labelvaluesnotcoming:
         if "Not" in j:
             labelvaluestatus = '<b><font color=\"#D70000\">' + \
-            j + '</font></b>'
+                j + '</font></b>'
             test6status = test6status + "\n" + labelvaluestatus
         else:
             labelvaluestatus = '<b><font color=\"#5AAF00\">' + \
-            j + '</font></b>'
-            test6status = test6status + "\n" + labelvaluestatus         
-                
+                j + '</font></b>'
+            test6status = test6status + "\n" + labelvaluestatus
+
     if "Pass" in appslogsstaus:
         test7status = '<b><font color=\"#5AAF00\">' + appslogsstaus + '</font></b>'
     else:
@@ -109,7 +109,7 @@ def send_googlechat_message(GOOGLECHAT_WEBHOOK_URL, portal_name, currentdate, TE
     else:
         test16status = '<b><font color=\"#D70000\">' + \
             fluentbitlogsstatus + '</font></b>'
-               
+
     test17status = ''
     for k in logs_queryfilterstatuslist:
         if "Pass" in k:
@@ -139,16 +139,39 @@ def send_googlechat_message(GOOGLECHAT_WEBHOOK_URL, portal_name, currentdate, TE
     else:
         test20status = '<b><font color=\"#D70000\">' + \
             logalertdeletionfunctionalitystatus + '</font></b>'
-            
+
+    if "Pass" in logalertcreationgroupbyfunctionalitystatus:
+        test21status = '<b><font color=\"#5AAF00\">' + \
+            logalertcreationgroupbyfunctionalitystatus + '</font></b>'
+    else:
+        test21status = '<b><font color=\"#D70000\">' + \
+            logalertcreationgroupbyfunctionalitystatus + '</font></b>'
+
+    if "Pass" in logalertgenerationgroupbyfunctionalitystatus:
+        test22status = '<b><font color=\"#5AAF00\">' + \
+            logalertgenerationgroupbyfunctionalitystatus + '</font></b>'
+    else:
+        test22status = '<b><font color=\"#D70000\">' + \
+            logalertgenerationgroupbyfunctionalitystatus + '</font></b>'
+
+    if "Pass" in logalertdeletiongroupbyfunctionalitystatus:
+        test23status = '<b><font color=\"#5AAF00\">' + \
+            logalertdeletiongroupbyfunctionalitystatus + '</font></b>'
+    else:
+        test23status = '<b><font color=\"#D70000\">' + \
+            logalertdeletiongroupbyfunctionalitystatus + '</font></b>'
+
     WEBHOOK_URL = GOOGLECHAT_WEBHOOK_URL
-    title = portal_name + " LOGS AND LOG ALERT DEFINITION AUTOMATION REPORT"
+    title = portal_name + " LOGS OBSERVABILITY AUTOMATION REPORT"
     subtitle = currentdate
-    
-    paragraph =  '<b>' + TESTCASE1 + '</b>' + test1status + '<b>' + TESTCASE2 + test2status + '<b>' + TESTCASE3 + test3status + '<b>' + TESTCASE4 + test4status + '<b>' + TESTCASE5 + test5status + '<b>' + TESTCASE6 + test6status +  '<b>' + TESTCASE7 + "INGESTED-LOGS-COUNT : " + str(GeneratedLogsCount) + "\n\n" + "UI-LOGS-COUNT: " + str(Logscomingonportal) + "\n\n" + test7status + '<b>' + TESTCASE8 + test8status + '<b>' + TESTCASE9 + test9status + '<b>' + TESTCASE10 + \
+
+    paragraph = '<b>' + TESTCASE1 + '</b>' + test1status + '<b>' + TESTCASE2 + test2status + '<b>' + TESTCASE3 + test3status + '<b>' + TESTCASE4 + test4status + '<b>' + TESTCASE5 + test5status + '<b>' + TESTCASE6 + test6status + '<b>' + TESTCASE7 + test7status + '<b>' + TESTCASE8 + "INGESTED-LOGS-COUNT : " + str(GeneratedLogsCount) + "\n\n" + "UI-LOGS-COUNT: " + str(Logscomingonportal) + "\n\n" + test8status + '<b>' + TESTCASE9 + test9status + '<b>' + TESTCASE10 + \
         test10status + '<b>' + TESTCASE11 + test11status + '<b>' + TESTCASE12 + test12status + '<b>' + TESTCASE13 + test13status + '<b>' + TESTCASE14 + test14status + \
-       '<b>' + TESTCASE15 + test15status + '<b>' + TESTCASE16 + \
+        '<b>' + TESTCASE15 + test15status + '<b>' + TESTCASE16 + \
         test16status + '<b>' + TESTCASE17 + \
-        test17status + '<b>' + TESTCASE18 + test18status + '<b>' + TESTCASE19 + test19status  + '<b>' + TESTCASE20 + test20status
+        test17status + '<b>' + TESTCASE18 + test18status + '<b>' + TESTCASE19 + test19status + '<b>' + TESTCASE20 + \
+        test20status + '<b>' + TESTCASE21 + test21status + '<b>' + \
+        TESTCASE22 + test22status + '<b>' + TESTCASE23 + test23status
     widget = {'textParagraph': {'text': paragraph}}
     res = requests.post(
         WEBHOOK_URL,

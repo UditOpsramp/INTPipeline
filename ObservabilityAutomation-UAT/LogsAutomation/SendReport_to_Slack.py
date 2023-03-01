@@ -4,8 +4,8 @@ import requests
 import json
 
 
-def send_slack_message(SLACK_WEBHOOK_URL, portal_name, currentdate,logs_alllabelstatus,logs_labelvaluesnotcoming, appslogsstaus, countlogsstaus, hostlogsstatus, logs_queryfilterstatuslist,
-                       logs_notcontainsfunctionalitystatus, logs_multifilter_functionaltystatus, logs_linefilter_functionalitystatus, filteringlogsfunctionalitystatus, maskinglogsfunctionalitystatus, logalertcreationfunctionalitystatus, logalertgenerationfunctionalitystatus, logalertdeletionfunctionalitystatus, awslogsstatus,awslambdalogsstatus, azurelogsstatus, gcplogsstatus, fluentdlogsstatus, fluentbitlogsstatus):
+def send_slack_message(SLACK_WEBHOOK_URL, portal_name, currentdate, logs_alllabelstatus, logs_labelvaluesnotcoming, appslogsstaus, countlogsstaus, hostlogsstatus, logs_queryfilterstatuslist,
+                       logs_notcontainsfunctionalitystatus, logs_multifilter_functionaltystatus, logs_linefilter_functionalitystatus, filteringlogsfunctionalitystatus, maskinglogsfunctionalitystatus, logalertcreationfunctionalitystatus, logalertgenerationfunctionalitystatus, logalertdeletionfunctionalitystatus, logalertcreationgroupbyfunctionalitystatus, logalertgenerationgroupbyfunctionalitystatus, logalertdeletiongroupbyfunctionalitystatus, awslogsstatus, awslambdalogsstatus, azurelogsstatus, gcplogsstatus, fluentdlogsstatus, fluentbitlogsstatus):
 
     FailTestCase_color = ""
     PassTestCase_color = ""
@@ -14,7 +14,7 @@ def send_slack_message(SLACK_WEBHOOK_URL, portal_name, currentdate,logs_alllabel
     failedtestcase = ""
     passtestcase = ""
 
-    for i in [appslogsstaus, countlogsstaus, hostlogsstatus, logs_notcontainsfunctionalitystatus, logs_multifilter_functionaltystatus, logs_linefilter_functionalitystatus, filteringlogsfunctionalitystatus, maskinglogsfunctionalitystatus, awslogsstatus,awslambdalogsstatus, azurelogsstatus, gcplogsstatus, fluentdlogsstatus, fluentbitlogsstatus, logalertcreationfunctionalitystatus, logalertgenerationfunctionalitystatus, logalertdeletionfunctionalitystatus]:
+    for i in [appslogsstaus, countlogsstaus, hostlogsstatus, logs_notcontainsfunctionalitystatus, logs_multifilter_functionaltystatus, logs_linefilter_functionalitystatus, filteringlogsfunctionalitystatus, maskinglogsfunctionalitystatus, awslogsstatus, awslambdalogsstatus, azurelogsstatus, gcplogsstatus, fluentdlogsstatus, fluentbitlogsstatus, logalertcreationfunctionalitystatus, logalertgenerationfunctionalitystatus, logalertdeletionfunctionalitystatus, logalertcreationgroupbyfunctionalitystatus, logalertgenerationgroupbyfunctionalitystatus, logalertdeletiongroupbyfunctionalitystatus]:
         if "Fail" in i:
             FailTestCaseList.append(i)
             FailTestCase_color = "#D70000"
@@ -22,25 +22,25 @@ def send_slack_message(SLACK_WEBHOOK_URL, portal_name, currentdate,logs_alllabel
             if "Pass" in i:
                 PassTestCaseList.append(i)
                 PassTestCase_color = "#5AAF00"
-                
+
     for j in [logs_alllabelstatus]:
-        for m in j :
+        for m in j:
             if "Not" in m:
-                FailTestCaseList.append(m)  
-                FailTestCase_color = "#D70000"              
+                FailTestCaseList.append(m)
+                FailTestCase_color = "#D70000"
             else:
                 PassTestCaseList.append(m)
                 PassTestCase_color = "#5AAF00"
-    
+
     for k in [logs_labelvaluesnotcoming]:
-        for n in k :
+        for n in k:
             if "Not" in n:
-                FailTestCaseList.append(n)  
-                FailTestCase_color = "#D70000"              
+                FailTestCaseList.append(n)
+                FailTestCase_color = "#D70000"
             else:
                 PassTestCaseList.append(n)
-                PassTestCase_color = "#5AAF00"   
-        
+                PassTestCase_color = "#5AAF00"
+
     for i in logs_queryfilterstatuslist:
         if "Fail" in i:
             FailTestCaseList.append(i)
@@ -70,4 +70,3 @@ def send_slack_message(SLACK_WEBHOOK_URL, portal_name, currentdate,logs_alllabel
         ]
     }
     return requests.post(SLACK_WEBHOOK_URL, json.dumps(SLACK_PAYLOAD))
-

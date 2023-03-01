@@ -7,7 +7,7 @@ import subprocess as sp
 
 def AppLogs(config_and_report_directory,workdirectory, parsedreportfile, AuthToken, portal, tenantid, starttimenanosec, endtimenanosec):
 
-    time.sleep(60)
+    time.sleep(30)
 
     cmd = "sudo cp " + workdirectory + \
         "/TestCasesConfig/app-logconfig.yaml /opt/opsramp/agent/conf/log.d/log-config.yaml"
@@ -16,7 +16,7 @@ def AppLogs(config_and_report_directory,workdirectory, parsedreportfile, AuthTok
     cmd = "sudo systemctl restart opsramp-agent"
     sp.getoutput(cmd)
 
-    time.sleep(30)
+    time.sleep(60)
 
     with open(workdirectory + "/TestCasesConfig/app-logconfig.yaml", "r") as file:
         logconfigfile = yaml.load_all(file, Loader=yaml.FullLoader)

@@ -7,12 +7,6 @@ import subprocess as sp
 
 def QueryNotContainsLogs(config_and_report_directory,workdirectory, parsedreportfile,parsedconfigfile, AuthToken, portal, tenantid, starttimenanosec, endtimenanosec):
 
-    NumberofLogs = parsedconfigfile['NumberofLogs']
-    NumberofLogFiles = parsedconfigfile['NumberofLogFiles']
-    LogMsgLength = parsedconfigfile['LogMsgLength']
-    LogRotateSizeInMB = parsedconfigfile['LogRotateSizeInMB']
-    TimeToSleep = parsedconfigfile['TimeToSleep']
-
     cmd = "sudo cp " + workdirectory + \
         "/TestCasesConfig/count-logconfig.yaml /opt/opsramp/agent/conf/log.d/log-config.yaml"
     sp.getoutput(cmd)

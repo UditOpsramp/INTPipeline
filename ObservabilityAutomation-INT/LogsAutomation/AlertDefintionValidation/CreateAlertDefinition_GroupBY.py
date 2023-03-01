@@ -4,9 +4,10 @@ import json
 import yaml
 
 
-def CreateLogAlertDefinition(config_and_report_directory,workdirectory, parsedreportfile, AuthToken, portal, tenantid):
+def CreateAlertDefinitionGroupBY(config_and_report_directory, workdirectory, parsedreportfile, AuthToken, portal, tenantid):
 
-    alertidfile = open(workdirectory + "/AlertDefintionValidation/alertinfo.yml")
+    alertidfile = open(
+        workdirectory + "/AlertDefintionValidation/alertinfo.yml")
     parsedalertfile = yaml.load(alertidfile, Loader=yaml.FullLoader)
 
     createurl = "https://"\
@@ -17,7 +18,7 @@ def CreateLogAlertDefinition(config_and_report_directory,workdirectory, parsedre
 
     payload = json.dumps({
         "alert": {
-            "name": "LogAlertTest",
+            "name": "LogAlertTest_GroupBY",
             "type": "log",
             "tenantId": tenantid,
             "conditions": [
@@ -25,15 +26,16 @@ def CreateLogAlertDefinition(config_and_report_directory,workdirectory, parsedre
                     "severity": "critical",
                     "operator": ">",
                     "value": 1,
+                    "grouping": ["resourceUUID"],
                     "duration": {
-                        "value": 30,
+                        "value": 60,
                         "unit": "minute"
                     }
                 }
             ],
             "notification": {
-                "subject": "LogAlertTest",
-                "description": "LogAlertTest"
+                "subject": "LogAlertTest_GroupBY",
+                "description": "LogAlertTest_GroupBY"
             },
             "query": "{level=\"Debug\"}"
         },
@@ -48,18 +50,17 @@ def CreateLogAlertDefinition(config_and_report_directory,workdirectory, parsedre
     response = requests.request(
         "POST", createurl, headers=headers, data=payload)
     if response.status_code == 200:
-        status = "Validation Pass - Log Alert Definiton Created Successfully"
-        parsedreportfile['LogAlertCreation'] = status
+        status = "Validation Pass - Log Alert Definiton with GroupBY Created Successfully"
+        parsedreportfile['LogAlertCreation_GroupBy'] = status
         jsonreponse = response.json()
         alertid = jsonreponse['alert']['alertId']
-        parsedalertfile['AlertComponent'] = alertid  
+        parsedalertfile['AlertComponent_GroupBY'] = alertid
     else:
-        status = "Validation Fail - Log Alert Defintion Not Created Successfully " + response.reason
-        parsedreportfile['LogAlertCreation'] = status
-        
+        status = "Validation Fail - Log Alert Defintion with GroupBY Not Created Successfully " + response.reason
+        parsedreportfile['LogAlertCreation_GroupBy'] = status
+
     with open(workdirectory + "/AlertDefintionValidation/alertinfo.yml", "w") as file:
-        yaml.dump(parsedalertfile, file)    
-        
+        yaml.dump(parsedalertfile, file)
+
     with open(config_and_report_directory + "/Report.yml", "w") as file:
         yaml.dump(parsedreportfile, file)
-

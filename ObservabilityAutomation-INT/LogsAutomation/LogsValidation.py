@@ -18,6 +18,9 @@ import TestCases.MaskingLogs
 import AlertDefintionValidation.Createalertdef
 import AlertDefintionValidation.GetAlertDetails
 import AlertDefintionValidation.DeleteAlertDefinition
+import AlertDefintionValidation.CreateAlertDefinition_GroupBY
+import AlertDefintionValidation.GetAlertDetails_GroupBY
+import AlertDefintionValidation.DeleteAlertDefinition_GroupBY
 import CloudAppsValidation.AWS_Logs
 import CloudAppsValidation.AWSLambda_Logs
 import CloudAppsValidation.Azure_Logs
@@ -138,6 +141,15 @@ TESTCASE20 = "\n\nTEST CASE-20 : VALIDATION OF DELETION OF LOG-ALERT DEFINITION\
 AlertDefintionValidation.DeleteAlertDefinition.DeleteLogAlertDefinition(
     config_and_report_directory, workdirectory, parsedreportfile, AuthToken, portal, tenantid)
 
+TESTCASE21 = "\n\nTEST CASE-21 : VALIDATION OF CREATION LOG ALERT DEFINITION GROUPBY FUNCTIONALITY\n\n"
+AlertDefintionValidation.CreateAlertDefinition_GroupBY.CreateAlertDefinitionGroupBY(config_and_report_directory, workdirectory, parsedreportfile, AuthToken, portal, tenantid)
+
+TESTCASE22 = "\n\nTEST CASE-22 : VALIDATION OF LOG ALERT GROUPBY GENERATION FUNCTIONALITY\n\n"
+AlertDefintionValidation.GetAlertDetails_GroupBY.GetAlertDetailsGroupBY(config_and_report_directory, workdirectory, parsedreportfile, AuthToken, portal, tenantid)
+
+TESTCASE23 = "\n\nTEST CASE-23 : VALIDATION OF DELETION LOG ALERT DEFINITION GROUPBY FUNCTIONALITY\n\n"
+AlertDefintionValidation.DeleteAlertDefinition_GroupBY.DeleteLogAlertDefinitionGroupBY(config_and_report_directory, workdirectory, parsedreportfile, AuthToken, portal, tenantid)
+
 GeneratedLogsCount = TestCases.Count_Logs.generatedlogscountvalue
 Logscomingonportal = TestCases.Count_Logs.logscomingonportal
 
@@ -155,6 +167,9 @@ maskinglogsfunctionalitystatus = parsedreportfile['MaskingLogs_Functionality']
 logalertcreationfunctionalitystatus = parsedreportfile['LogAlertCreation']
 logalertgenerationfunctionalitystatus = parsedreportfile['LogAlertGeneration']
 logalertdeletionfunctionalitystatus = parsedreportfile['LogAlertDeletion']
+logalertcreationgroupbyfunctionalitystatus = parsedreportfile['LogAlertCreation_GroupBy']
+logalertgenerationgroupbyfunctionalitystatus = parsedreportfile['LogAlertGeneration_GroupBy']
+logalertdeletiongroupbyfunctionalitystatus = parsedreportfile['LogAlertDeletion_GroupBy']
 awslogsstatus = parsedreportfile['AWS_Logs']
 awslambdalogsstatus = parsedreportfile['AWSLambda_Logs']
 azurelogsstatus = parsedreportfile['AZURE_Logs']
@@ -166,15 +181,14 @@ GOOGLECHAT_WEBHOOK_URL = logs_googlechat_webhook_url
 
 SLACK_WEBHOOK_URL = slack_webhook_url
 
-SendReport_to_GooleChat.send_googlechat_message(GOOGLECHAT_WEBHOOK_URL, portal_name, currentdate, TESTCASE1, TESTCASE2, TESTCASE3, TESTCASE4, TESTCASE5, TESTCASE6, TESTCASE7, TESTCASE8, TESTCASE9, TESTCASE10, TESTCASE11, TESTCASE12, TESTCASE13, TESTCASE14, TESTCASE15, TESTCASE16, TESTCASE17, TESTCASE18, TESTCASE19,TESTCASE20, logs_alllabelstatus, logs_labelvaluesnotcoming, appslogsstaus, countlogsstaus, GeneratedLogsCount, Logscomingonportal, hostlogsstatus, logs_queryfilterstatuslist,
-                                                logs_notcontainsfunctionalitystatus, logs_multifilter_functionaltystatus, logs_linefilter_functionalitystatus, filteringlogsfunctionalitystatus, maskinglogsfunctionalitystatus, logalertcreationfunctionalitystatus, logalertgenerationfunctionalitystatus, logalertdeletionfunctionalitystatus, awslogsstatus,awslambdalogsstatus, azurelogsstatus, gcplogsstatus, fluentdlogsstatus, fluentbitlogsstatus)
+SendReport_to_GooleChat.send_googlechat_message(GOOGLECHAT_WEBHOOK_URL, portal_name, currentdate, TESTCASE1, TESTCASE2, TESTCASE3, TESTCASE4, TESTCASE5, TESTCASE6, TESTCASE7, TESTCASE8, TESTCASE9, TESTCASE10, TESTCASE11, TESTCASE12, TESTCASE13, TESTCASE14, TESTCASE15, TESTCASE16, TESTCASE17, TESTCASE18, TESTCASE19, TESTCASE20, TESTCASE21, TESTCASE22, TESTCASE23, logs_alllabelstatus, logs_labelvaluesnotcoming, appslogsstaus, countlogsstaus, GeneratedLogsCount, Logscomingonportal, hostlogsstatus, logs_queryfilterstatuslist,
+                                                logs_notcontainsfunctionalitystatus, logs_multifilter_functionaltystatus, logs_linefilter_functionalitystatus, filteringlogsfunctionalitystatus, maskinglogsfunctionalitystatus, logalertcreationfunctionalitystatus, logalertgenerationfunctionalitystatus, logalertdeletionfunctionalitystatus, logalertcreationgroupbyfunctionalitystatus, logalertgenerationgroupbyfunctionalitystatus, logalertdeletiongroupbyfunctionalitystatus, awslogsstatus, awslambdalogsstatus, azurelogsstatus, gcplogsstatus, fluentdlogsstatus, fluentbitlogsstatus)
 
 SendReport_to_Slack.send_slack_message(SLACK_WEBHOOK_URL, portal_name, currentdate, logs_alllabelstatus, logs_labelvaluesnotcoming, appslogsstaus, countlogsstaus, hostlogsstatus, logs_queryfilterstatuslist,
-                                       logs_notcontainsfunctionalitystatus, logs_multifilter_functionaltystatus, logs_linefilter_functionalitystatus, filteringlogsfunctionalitystatus, maskinglogsfunctionalitystatus, logalertcreationfunctionalitystatus, logalertgenerationfunctionalitystatus, logalertdeletionfunctionalitystatus, awslogsstatus,awslambdalogsstatus, azurelogsstatus, gcplogsstatus, fluentdlogsstatus, fluentbitlogsstatus)
+                                       logs_notcontainsfunctionalitystatus, logs_multifilter_functionaltystatus, logs_linefilter_functionalitystatus, filteringlogsfunctionalitystatus, maskinglogsfunctionalitystatus, logalertcreationfunctionalitystatus, logalertgenerationfunctionalitystatus, logalertdeletionfunctionalitystatus, logalertcreationgroupbyfunctionalitystatus, logalertgenerationgroupbyfunctionalitystatus, logalertdeletiongroupbyfunctionalitystatus, awslogsstatus, awslambdalogsstatus, azurelogsstatus, gcplogsstatus, fluentdlogsstatus, fluentbitlogsstatus)
 
 parsedreportfile['QueryFilter_Functionality'] = []
 parsedreportfile['AllLabelStatus'] = []
 parsedreportfile['LabelValuesNotComing'] = []
 with open(config_and_report_directory + "/Report.yml", "w") as file:
     yaml.dump(parsedreportfile, file)
-

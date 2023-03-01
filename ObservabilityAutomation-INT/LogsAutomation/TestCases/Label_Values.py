@@ -56,6 +56,10 @@ def LabelValues(config_and_report_directory, parsedreportfile, AuthToken, tenant
             else:
                 status = value_response.reason
                 Logs_LabelValuesNotComing.append(status)
+                
+    else:
+        status = labels_response.reason
+        Logs_LabelValuesNotComing.append(status)                
 
     with open(config_and_report_directory + "/Report.yml", "w") as file:
         yaml.dump(parsedreportfile, file)

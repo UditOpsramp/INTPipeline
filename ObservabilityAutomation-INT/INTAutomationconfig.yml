@@ -3,13 +3,13 @@ LogRotateSizeInMB: 600
 NumberofLogFiles: 1
 NumberofLogs: 100000
 TimeToSleep: 0
-client_id: c1858127-ca2b-4010-b41a-15227e3dae84
+client_id: 38ec5089-f983-493b-b21f-9ae2dabef66b
 partner_key: jdrh8UepzYZ7UesMKzCNXfcXZ2Z6yJGt
 partner_secret: x92qVwN33H9FBxd6AQF5QrRHMrfEEajMxxNsGytDDZRxqBccavuS2SN2p348NrwD
 portal_url: int.opsramp.net
-AWS_TOKEN: BNsgjmACVA4DDxrxP7VKRU2ctK2vb27U
-AZURE_TOKEN: CVmDcSGNarMnE8D3NrXBuJQtpCahGySN
-GCP_TOKEN: MF3WxhEw6wyWcmwCZSua3SXds7RRrZw4
+AWS_TOKEN: KE6hNSS7MmfcCQu83nt8bGYJzRZUXGp8
+AZURE_TOKEN: E7XwPbKmC8F4FPcJqP6zYrnbTd7tJwEC
+GCP_TOKEN: VXGsXkADr2NDb6x4sN5P4DMN3nuC9N3G
 AWS_BUCKETNAME : logsvalidation-int
 LOGS_GOOGLECHAT_WEBHOOK_URL: https://chat.googleapis.com/v1/spaces/AAAAV4jeHC8/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=tp_r--y2kXuf9VkUSCd3m4hhBmYHTVCUGMr6gJ4wmkU%3D
 TRACES_GOOGLECHAT_WEBHOOK_URL: https://chat.googleapis.com/v1/spaces/AAAASY0N78I/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=L34fEsEil_k1Y7cIjBvVfcCNfvDD3VUXS1aU0KCdf9g%3D
