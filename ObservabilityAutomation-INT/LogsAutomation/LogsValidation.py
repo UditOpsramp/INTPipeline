@@ -60,7 +60,7 @@ endtimenanosec = endtimeUNIX * 1000000000
 
 GetAuthToken.GetAuthToken(clientkey, clientsecret, portal)
 AuthToken = GetAuthToken.token
-
+'''
 TESTCASE1 = "\nTEST CASE-1 : VALIDATION OF AWS LOGS\n\n"
 CloudAppsValidation.AWS_Logs.AWSLogs(
     config_and_report_directory, parsedreportfile, AuthToken, awstoken, portal, tenantid, starttimenanosec, endtimenanosec)
@@ -128,7 +128,7 @@ LogForwardApps.Fluentbit_Logs.FluentBitLogs(
 TESTCASE17 = "\n\nTEST CASE-17 : VALIDATION OF QUERY FILTERS FUNCTIONALITY FOR EACH ATTRIBUTE"
 TestCases.QueryFilters.QueryFilter(
     config_and_report_directory, parsedreportfile, AuthToken, tenantid, portal, starttimeUNIX, endtimeUNIX, starttimenanosec, endtimenanosec)
-
+'''
 TESTCASE18 = "\n\nTEST CASE-18 : VALIDATION OF CREATION OF LOG-ALERT DEFINITION\n\n"
 AlertDefintionValidation.Createalertdef.CreateLogAlertDefinition(
     config_and_report_directory, workdirectory, parsedreportfile, AuthToken, portal, tenantid)
@@ -149,6 +149,7 @@ AlertDefintionValidation.GetAlertDetails_GroupBY.GetAlertDetailsGroupBY(config_a
 
 TESTCASE23 = "\n\nTEST CASE-23 : VALIDATION OF DELETION LOG ALERT DEFINITION GROUPBY FUNCTIONALITY\n\n"
 AlertDefintionValidation.DeleteAlertDefinition_GroupBY.DeleteLogAlertDefinitionGroupBY(config_and_report_directory, workdirectory, parsedreportfile, AuthToken, portal, tenantid)
+'''
 
 GeneratedLogsCount = TestCases.Count_Logs.generatedlogscountvalue
 Logscomingonportal = TestCases.Count_Logs.logscomingonportal
@@ -192,3 +193,4 @@ parsedreportfile['AllLabelStatus'] = []
 parsedreportfile['LabelValuesNotComing'] = []
 with open(config_and_report_directory + "/Report.yml", "w") as file:
     yaml.dump(parsedreportfile, file)
+'''

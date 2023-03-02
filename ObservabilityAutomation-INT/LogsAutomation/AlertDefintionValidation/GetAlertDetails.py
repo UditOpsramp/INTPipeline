@@ -6,6 +6,8 @@ import time
 
 def GetAlertDetails(config_and_report_directory,workdirectory, parsedreportfile, AuthToken, portal, tenantid):
 
+    alertresultStatus = False
+
     alertinfofile = open(
         workdirectory + "/AlertDefintionValidation/alertinfo.yml")
     parsedalertinfofile = yaml.load(alertinfofile, Loader=yaml.FullLoader)
@@ -32,12 +34,14 @@ def GetAlertDetails(config_and_report_directory,workdirectory, parsedreportfile,
         results = json['results']
         for i in results:
             alertcomponent = i['component']
-            break
-        if alertcomponent == AlertComponent:
-            status = "Validation Pass - Alert Generated Successfully"
+            if alertcomponent == AlertComponent:
+                alertresultStatus = True
+                break
+        if not alertresultStatus:    
+            status = "Validation Fail - Log Alert Not Generated Successfully"
             parsedreportfile['LogAlertGeneration'] = status
         else:
-            status = "Validation Fail - Alert Not Generated Successfully"
+            status = "Validation Pass - Log Alert Generated Successfully"
             parsedreportfile['LogAlertGeneration'] = status
 
     else:

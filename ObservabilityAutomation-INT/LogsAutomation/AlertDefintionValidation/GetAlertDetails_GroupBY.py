@@ -6,6 +6,8 @@ import time
 
 def GetAlertDetailsGroupBY(config_and_report_directory, workdirectory, parsedreportfile, AuthToken, portal, tenantid):
 
+    alertgroupbyresultStatus = False
+
     alertinfofile = open(
         workdirectory + "/AlertDefintionValidation/alertinfo.yml")
     parsedalertinfofile = yaml.load(alertinfofile, Loader=yaml.FullLoader)
@@ -33,12 +35,19 @@ def GetAlertDetailsGroupBY(config_and_report_directory, workdirectory, parsedrep
         for i in results:
             alertcomponent = i['component']
             if alertcomponent == AlertComponent_GroupBY:
-                if "dnsName" in i['resource']:
-                    status = "Validation Pass - Alert is Successfully Mapped with Resource"
-                    parsedreportfile['LogAlertGeneration_GroupBy'] = status
-                else:
-                    status = "Validation Fail - Alert is not Successfully Mapped with Resource"
-                    parsedreportfile['LogAlertGeneration_GroupBy'] = status
+                    if "dnsName" in i['resource']:
+                        alertgroupbyresultStatus = True
+                        break                                   
+            else:    
+                status = "Validation Fail - Log Alert Not Generated Successfully"
+                parsedreportfile['LogAlertGeneration_GroupBy'] = status    
+                                               
+        if not alertgroupbyresultStatus:            
+            status = "Validation Fail - Alert is not Successfully Mapped with Resource"
+            parsedreportfile['LogAlertGeneration_GroupBy'] = status
+        else:
+            status = "Validation Pass - Alert is Successfully Mapped with Resource"
+            parsedreportfile['LogAlertGeneration_GroupBy'] = status
     else:
         status = response.reason
         parsedreportfile['LogAlertGeneration_GroupBy'] = status

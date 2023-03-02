@@ -9,13 +9,14 @@ FluentD_Logs: 'App Name : FluentD : Validation Pass - Logs are coming on portal'
 GCP_Logs: 'Source Name : GCP : Validation Pass - Logs are coming on portal'
 Host_Logs: 'Host : cluster-node-02 : Validation Pass - Logs are coming for that host'
 LogAlertCreation: Validation Pass - Log Alert Definiton Created Successfully
-LogAlertDeletion: Validation Pass - Log Alert Definiton Deleted Successfully
-LogAlertGeneration: Validation Pass - Alert Generated Successfully
 LogAlertCreation_GroupBy: Validation Pass - Log Alert Definiton with GroupBY Created
   Successfully
-LogAlertGeneration_GroupBy: Validation Pass - Alert is Successfully Mapped with Resource
+LogAlertDeletion: Validation Pass - Log Alert Definiton Deleted Successfully
 LogAlertDeletion_GroupBy: Validation Pass - Log Alert Definiton with GroupBY Deleted
   Successfully
+LogAlertGeneration: Validation Fail - Log Alert Not Generated Successfully
+LogAlertGeneration_GroupBy: Validation Fail - Alert is not Successfully Mapped with
+  Resource
 Logs_AllLabelStatus: []
 Logs_LabelValuesNotComing: []
 Logs_LineFilter_Functionality: Validation Pass - Line Filter Functionality is Working
@@ -31,7 +32,7 @@ OpearationLabelValueStatus: 'Validation Pass : Value is Coming for Tracing Opera
   Label Attribute'
 ServiceLabelValueStatus: 'Validation Pass : Value is Coming for Tracing Service Label
   Attribute'
-Source_Logs: 'App Name : agent : Validation Pass - Logs are coming on portal'
+Source_Logs: 'Source Name : agent : Validation Fail - Logs are not coming on portal'
 TracesComingStatus: 'Validation Pass : Traces are Coming'
 Traces_LabelValuesNotComing: []
 Traces_QueryFilter_FunctionalityList: []

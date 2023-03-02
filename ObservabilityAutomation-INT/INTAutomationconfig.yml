@@ -3,7 +3,7 @@ LogRotateSizeInMB: 600
 NumberofLogFiles: 1
 NumberofLogs: 100000
 TimeToSleep: 0
-client_id: 38ec5089-f983-493b-b21f-9ae2dabef66b
+client_id: 449e5c19-f8cf-43f5-b450-14692a647b0c
 partner_key: jdrh8UepzYZ7UesMKzCNXfcXZ2Z6yJGt
 partner_secret: x92qVwN33H9FBxd6AQF5QrRHMrfEEajMxxNsGytDDZRxqBccavuS2SN2p348NrwD
 portal_url: int.opsramp.net
